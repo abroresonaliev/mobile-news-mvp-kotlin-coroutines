@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="Theme.MobileNews.RecyclerView" />
+
+    <style name="Theme.MobileNews.RecyclerView.Default">
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:overScrollMode">never</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
+</resources>

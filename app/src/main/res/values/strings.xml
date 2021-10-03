@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Mobile-News MVP Coroutines</string>
+
+    <string name="title_bottom_dashboard">Today</string>
+    <string name="title_bottom_recommended">For you</string>
+    <string name="title_bottom_read_later">Read later</string>
+
+    <string name="state_loading">Please wait…</string>
+    <string name="state_no_items">No items</string>
+    <string name="state_error_title">Sorry! … An error has occurred :(</string>
+    <string name="state_error_action">Retry</string>
+</resources>

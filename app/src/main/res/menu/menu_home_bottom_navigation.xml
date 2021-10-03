@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_dashboard"
+        android:icon="@drawable/ic_dashboard"
+        android:orderInCategory="100"
+        android:title="@string/title_bottom_dashboard" />
+    <item
+        android:id="@+id/home_recommended_news"
+        android:icon="@drawable/ic_recommended"
+        android:orderInCategory="103"
+        android:title="@string/title_bottom_recommended" />
+    <item
+        android:id="@+id/home_read_later_news"
+        android:icon="@drawable/ic_saved"
+        android:orderInCategory="104"
+        android:title="@string/title_bottom_read_later" />
+</menu>

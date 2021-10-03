@@ -1,0 +1,23 @@
+<resources>
+
+    <style name="Theme.MobileNews.SimpleDraweeView" />
+
+    <style name="Theme.MobileNews.SimpleDraweeView.DefaultNewsListImage">
+        <!--        <item name="android:background">@drawable/border_image_bc</item>-->
+        <item name="actualImageScaleType">centerCrop</item>
+        <!--        <item name="failureImage">@drawable/ic_place_holder</item>-->
+        <!--        <item name="failureImageScaleType">centerInside</item>-->
+        <item name="placeholderImageScaleType">centerInside</item>
+        <item name="progressBarAutoRotateInterval">1000</item>
+        <item name="progressBarImage">@drawable/loading_default_medium</item>
+        <item name="progressBarImageScaleType">centerInside</item>
+        <item name="roundBottomLeft">true</item>
+        <item name="roundBottomRight">true</item>
+        <item name="roundTopLeft">true</item>
+        <item name="roundTopRight">true</item>
+        <item name="roundedCornerRadius">12dp</item>
+        <item name="roundingBorderWidth">1dp</item>
+    </style>
+
+
+</resources>
