@@ -13,7 +13,6 @@ import uz.icerbersoft.mobilenews.app.R
 import uz.icerbersoft.mobilenews.app.databinding.FragmentReadLaterArticlesBinding
 import uz.icerbersoft.mobilenews.app.presentation.home.features.readlater.controller.ReadLaterArticleItemController
 import uz.icerbersoft.mobilenews.app.presentation.home.features.readlater.di.ReadLaterArticlesDaggerComponent
-import uz.icerbersoft.mobilenews.app.support.cicerone.utils.withArguments
 import uz.icerbersoft.mobilenews.app.support.controller.StateEmptyItemController
 import uz.icerbersoft.mobilenews.app.support.controller.StateErrorItemController
 import uz.icerbersoft.mobilenews.app.support.controller.StateLoadingItemController
@@ -75,7 +74,6 @@ internal class ReadLaterArticlesFragment :
 
     companion object {
 
-        fun newInstance() =
-            ReadLaterArticlesFragment().withArguments()
+        fun newInstance() = ReadLaterArticlesFragment()
     }
 }

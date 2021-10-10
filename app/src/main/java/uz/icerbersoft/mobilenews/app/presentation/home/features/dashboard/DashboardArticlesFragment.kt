@@ -14,7 +14,6 @@ import uz.icerbersoft.mobilenews.app.databinding.FragmentDashboardArticlesBindin
 import uz.icerbersoft.mobilenews.app.presentation.home.features.dashboard.controller.BreakingArticleItemController
 import uz.icerbersoft.mobilenews.app.presentation.home.features.dashboard.controller.TopArticleItemController
 import uz.icerbersoft.mobilenews.app.presentation.home.features.dashboard.di.DashboardArticlesDaggerComponent
-import uz.icerbersoft.mobilenews.app.support.cicerone.utils.withArguments
 import uz.icerbersoft.mobilenews.app.support.controller.StateEmptyItemController
 import uz.icerbersoft.mobilenews.app.support.controller.StateErrorItemController
 import uz.icerbersoft.mobilenews.app.support.controller.StateLoadingItemController
@@ -102,7 +101,6 @@ internal class DashboardArticlesFragment :
 
     companion object {
 
-        fun newInstance() =
-            DashboardArticlesFragment().withArguments()
+        fun newInstance() = DashboardArticlesFragment()
     }
 }

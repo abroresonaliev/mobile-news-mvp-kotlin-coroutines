@@ -13,7 +13,6 @@ import uz.icerbersoft.mobilenews.app.R
 import uz.icerbersoft.mobilenews.app.databinding.FragmentRecommendedArticlesBinding
 import uz.icerbersoft.mobilenews.app.presentation.home.features.recommended.controller.RecommendedArticleItemController
 import uz.icerbersoft.mobilenews.app.presentation.home.features.recommended.di.RecommendedArticlesDaggerComponent
-import uz.icerbersoft.mobilenews.app.support.cicerone.utils.withArguments
 import uz.icerbersoft.mobilenews.app.support.controller.StateEmptyItemController
 import uz.icerbersoft.mobilenews.app.support.controller.StateErrorItemController
 import uz.icerbersoft.mobilenews.app.support.controller.StateLoadingItemController
@@ -74,7 +73,6 @@ internal class RecommendedArticlesFragment :
 
     companion object {
 
-        fun newInstance() =
-            RecommendedArticlesFragment().withArguments()
+        fun newInstance() = RecommendedArticlesFragment()
     }
 }
