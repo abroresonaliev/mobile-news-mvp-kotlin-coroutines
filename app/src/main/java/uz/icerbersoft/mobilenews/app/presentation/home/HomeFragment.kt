@@ -13,7 +13,6 @@ import uz.icerbersoft.mobilenews.app.R
 import uz.icerbersoft.mobilenews.app.databinding.FragmentHomeBinding
 import uz.icerbersoft.mobilenews.app.presentation.home.di.HomeDaggerComponent
 import uz.icerbersoft.mobilenews.app.presentation.home.router.HomeRouter
-import uz.icerbersoft.mobilenews.app.support.cicerone.utils.withArguments
 import javax.inject.Inject
 
 internal class HomeFragment : MvpAppCompatFragment(R.layout.fragment_home),
@@ -89,7 +88,6 @@ internal class HomeFragment : MvpAppCompatFragment(R.layout.fragment_home),
 
     companion object {
 
-        fun newInstance() =
-            HomeFragment().withArguments()
+        fun newInstance() = HomeFragment()
     }
 }
