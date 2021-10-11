@@ -17,9 +17,9 @@ class ArticleDetailPresenter @Inject constructor(
     private val router: ArticleDetailRouter
 ) : MvpPresenter<ArticleDetailView>() {
 
-    private var currentArticleId: Long by Delegates.notNull()
+    private var currentArticleId: String by Delegates.notNull()
 
-    fun setArticleId(value: Long) {
+    fun setArticleId(value: String) {
         currentArticleId = value
     }
 

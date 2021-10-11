@@ -11,7 +11,7 @@ import javax.inject.Inject
 class ArticleDetailInteractor @Inject constructor(
     private val articleRepository: ArticleRepository
 ) {
-    fun getArticle(articleId: Long): Flow<Article> {
+    fun getArticle(articleId: String): Flow<Article> {
         return articleRepository.getArticle(articleId)
             .flowOn(Dispatchers.IO)
     }

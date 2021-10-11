@@ -4,10 +4,9 @@ import uz.icerbersoft.mobilenews.data.model.article.Article
 import uz.icerbersoft.mobilenews.data.model.article.ArticleEntity
 import uz.icerbersoft.mobilenews.data.model.article.Source
 import uz.icerbersoft.mobilenews.data.model.article.response.ArticleResponse
-import uz.icerbersoft.mobilenews.data.model.article.response.SourceResponse
 import uz.icerbersoft.mobilenews.data.utils.date.mapToString
 
-internal fun ArticleEntity.mapToArticle(): Article =
+internal fun ArticleEntity.entityToArticle(): Article =
     Article(
         articleId = articleId,
         author = author,
@@ -21,9 +20,9 @@ internal fun ArticleEntity.mapToArticle(): Article =
         isBookmarked = isBookmarked
     )
 
-internal fun Article.mapToEntity(): ArticleEntity =
+internal fun Article.toEntity(): ArticleEntity =
     ArticleEntity(
-        articleId = 0L,
+        articleId = articleId,
         title = title,
         description = description,
         content = content,
@@ -36,9 +35,9 @@ internal fun Article.mapToEntity(): ArticleEntity =
         isBookmarked = false
     )
 
-internal fun ArticleResponse.mapToEntity(): ArticleEntity =
+internal fun ArticleResponse.responseToEntity(): ArticleEntity =
     ArticleEntity(
-        articleId = 0,
+        articleId = url.hashCode().toString(),
         author = author ?: "",
         content = content ?: "",
         description = description ?: "",
@@ -50,6 +49,3 @@ internal fun ArticleResponse.mapToEntity(): ArticleEntity =
         imageUrl = imageUrl ?: "",
         isBookmarked = false
     )
-
-internal fun SourceResponse.mapToSource(): Source =
-    Source(id = id, name = name)

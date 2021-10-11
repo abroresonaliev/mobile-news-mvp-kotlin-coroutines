@@ -1,7 +1,7 @@
 package uz.icerbersoft.mobilenews.data.model.article
 
 data class Article(
-    val articleId: Long,
+    val articleId: String,
     val author: String,
     val content: String,
     val description: String,

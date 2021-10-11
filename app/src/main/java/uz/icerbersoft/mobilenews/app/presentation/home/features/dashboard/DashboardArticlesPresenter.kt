@@ -1,9 +1,6 @@
 package uz.icerbersoft.mobilenews.app.presentation.home.features.dashboard
 
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.*
 import moxy.MvpPresenter
 import moxy.presenterScope
 import uz.icerbersoft.mobilenews.app.global.router.GlobalRouter
@@ -36,6 +33,7 @@ internal class DashboardArticlesPresenter @Inject constructor(
 
     fun getTopArticles() {
         interactor.getTopArticles()
+            .debounce(3000)
             .onStart { viewState.onDefinedTopArticleWrappers(listOf(LoadingItem)) }
             .catch { viewState.onDefinedTopArticleWrappers(listOf(ErrorItem)) }
             .onEach { it ->
