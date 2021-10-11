@@ -6,7 +6,7 @@ import uz.icerbersoft.mobilenews.data.model.article.ArticleListWrapper
 
 interface ArticleRepository {
 
-    fun getArticle(articleId: Long): Flow<Article>
+    fun getArticle(articleId: String): Flow<Article>
 
     fun getArticles(): Flow<ArticleListWrapper>
 
@@ -18,5 +18,5 @@ interface ArticleRepository {
 
     fun getReadLaterArticles(): Flow<ArticleListWrapper>
 
-    fun updateBookmark(articleId: Long, isBookmarked: Boolean): Flow<Unit>
+    fun updateBookmark(articleId: String, isBookmarked: Boolean): Flow<Unit>
 }

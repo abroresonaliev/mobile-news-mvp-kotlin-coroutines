@@ -22,7 +22,7 @@ internal class ArticleDetailFragment : MvpAppCompatFragment(R.layout.fragment_ar
     @Inject
     lateinit var lazyPresenter: Lazy<ArticleDetailPresenter>
     private val presenter by moxyPresenter {
-        lazyPresenter.get().apply { setArticleId(checkNotNull(arguments?.getLong(KEY_ARTICLE_ID))) }
+        lazyPresenter.get().apply { setArticleId(checkNotNull(arguments?.getString(KEY_ARTICLE_ID))) }
     }
 
     private lateinit var binding: FragmentArticleDetailBinding
@@ -69,9 +69,9 @@ internal class ArticleDetailFragment : MvpAppCompatFragment(R.layout.fragment_ar
 
         private const val KEY_ARTICLE_ID: String = "key_article_id"
 
-        fun newInstance(articleId: Long) =
+        fun newInstance(articleId: String) =
             ArticleDetailFragment().apply {
-                arguments = Bundle().apply { putLong(KEY_ARTICLE_ID, articleId) }
+                arguments = Bundle().apply { putString(KEY_ARTICLE_ID, articleId) }
             }
     }
 }

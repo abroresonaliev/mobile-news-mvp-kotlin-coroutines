@@ -6,9 +6,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "articles")
 internal data class ArticleEntity(
-    @PrimaryKey(autoGenerate = true)
+
+    @PrimaryKey
     @ColumnInfo(name = "article_article_id")
-    val articleId: Long,
+    val articleId: String,
 
     @ColumnInfo(name = "article_title")
     val title: String,

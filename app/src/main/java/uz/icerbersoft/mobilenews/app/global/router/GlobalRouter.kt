@@ -12,7 +12,7 @@ class GlobalRouter : CiceroneRouter() {
         newRootScreen(Screens.Home)
     }
 
-    fun openArticleDetailScreen(articleId: Long) {
+    fun openArticleDetailScreen(articleId: String) {
         navigateTo(Screens.ArticleDetail(articleId))
     }
 
@@ -23,7 +23,7 @@ class GlobalRouter : CiceroneRouter() {
                 HomeFragment.newInstance()
         }
 
-        class ArticleDetail(val articleId: Long) : SupportAppScreen() {
+        class ArticleDetail(val articleId: String) : SupportAppScreen() {
             override fun getFragment(): Fragment =
                 ArticleDetailFragment.newInstance(articleId)
         }
