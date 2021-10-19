@@ -1,4 +1,4 @@
-it's a sample project, in project used: kotlin coroutines, dagger2, cicerone, mvp
+it's a sample project, in project used: kotlin coroutines, dagger2, cicerone, mvp (moxy-mvp)
 
 articles taken from https://newsapi.org/
 
