@@ -32,14 +32,17 @@ internal class DashboardArticlesPresenter @Inject constructor(
     }
 
     fun getTopArticles() {
-        interactor.getTopArticles()
-            .debounce(3000)
-            .onStart { viewState.onDefinedTopArticleWrappers(listOf(LoadingItem)) }
-            .catch { viewState.onDefinedTopArticleWrappers(listOf(ErrorItem)) }
-            .onEach { it ->
-                if (it.articles.isNotEmpty())
-                    viewState.onDefinedTopArticleWrappers(it.articles.map { ArticleItem(it) })
-                else viewState.onDefinedTopArticleWrappers(listOf(EmptyItem))
+        flowOf(Unit)
+            .debounce(2000)
+            .flatMapConcat {
+                interactor.getTopArticles()
+                    .onStart { viewState.onDefinedTopArticleWrappers(listOf(LoadingItem)) }
+                    .catch { viewState.onDefinedTopArticleWrappers(listOf(ErrorItem)) }
+                    .onEach { it ->
+                        if (it.articles.isNotEmpty())
+                            viewState.onDefinedTopArticleWrappers(it.articles.map { ArticleItem(it) })
+                        else viewState.onDefinedTopArticleWrappers(listOf(EmptyItem))
+                    }
             }
             .launchIn(presenterScope)
     }
