@@ -17,6 +17,7 @@ import uz.icerbersoft.mobilenews.app.support.controller.StateEmptyItemController
 import uz.icerbersoft.mobilenews.app.support.controller.StateErrorItemController
 import uz.icerbersoft.mobilenews.app.support.controller.StateLoadingItemController
 import uz.icerbersoft.mobilenews.app.utils.addCallback
+import uz.icerbersoft.mobilenews.app.utils.onBackPressedDispatcher
 import uz.icerbersoft.mobilenews.domain.interactor.article.detail.model.ArticleWrapper
 import javax.inject.Inject
 
@@ -47,7 +48,7 @@ internal class ReadLaterArticlesFragment :
     override fun onCreate(savedInstanceState: Bundle?) {
         XInjectionManager.bindComponent(this).inject(this)
         super.onCreate(savedInstanceState)
-        requireActivity().onBackPressedDispatcher.addCallback(this) { presenter.back() }
+        onBackPressedDispatcher.addCallback(this) { presenter.back() }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
