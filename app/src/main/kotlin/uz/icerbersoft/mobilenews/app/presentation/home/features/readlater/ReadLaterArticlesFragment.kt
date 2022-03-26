@@ -16,9 +16,10 @@ import uz.icerbersoft.mobilenews.app.presentation.home.features.readlater.di.Rea
 import uz.icerbersoft.mobilenews.app.support.controller.StateEmptyItemController
 import uz.icerbersoft.mobilenews.app.support.controller.StateErrorItemController
 import uz.icerbersoft.mobilenews.app.support.controller.StateLoadingItemController
+import uz.icerbersoft.mobilenews.app.support.event.LoadingListEvent
 import uz.icerbersoft.mobilenews.app.utils.addCallback
 import uz.icerbersoft.mobilenews.app.utils.onBackPressedDispatcher
-import uz.icerbersoft.mobilenews.app.usecase.article.detail.model.ArticleWrapper
+import uz.icerbersoft.mobilenews.data.model.article.Article
 import javax.inject.Inject
 
 internal class ReadLaterArticlesFragment :
@@ -60,16 +61,14 @@ internal class ReadLaterArticlesFragment :
         }
     }
 
-    override fun onSuccessArticles(articles: List<ArticleWrapper>) {
+    override fun onSuccessArticles(event: LoadingListEvent<Article>) {
         val itemList = ItemList.create()
-        for (item in articles) {
-            when (item) {
-                is ArticleWrapper.ArticleItem -> itemList.add(item, articleController)
-                is ArticleWrapper.EmptyItem -> itemList.add(stateEmptyItemController)
-                is ArticleWrapper.ErrorItem -> itemList.add(stateErrorController)
-                is ArticleWrapper.LoadingItem -> itemList.add(stateLoadingController)
+            when (event) {
+                is LoadingListEvent.LoadingState -> itemList.add(stateLoadingController)
+                is LoadingListEvent.SuccessState -> itemList.addAll(event.data, articleController)
+                is LoadingListEvent.EmptyState -> itemList.add(stateEmptyItemController)
+                is LoadingListEvent.ErrorState -> itemList.add(stateErrorController)
             }
-        }
         easyAdapter.setItems(itemList)
     }
 

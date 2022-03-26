@@ -8,9 +8,9 @@ import moxy.MvpPresenter
 import moxy.presenterScope
 import uz.icerbersoft.mobilenews.app.global.router.GlobalRouter
 import uz.icerbersoft.mobilenews.app.presentation.home.router.HomeRouter
+import uz.icerbersoft.mobilenews.app.support.event.LoadingListEvent
 import uz.icerbersoft.mobilenews.data.model.article.Article
-import uz.icerbersoft.mobilenews.app.usecase.article.detail.model.ArticleWrapper.*
-import uz.icerbersoft.mobilenews.app.usecase.article.list.ArticleListUseCase
+import uz.icerbersoft.mobilenews.domain.usecase.article.list.ArticleListUseCase
 import javax.inject.Inject
 
 internal class ReadLaterArticlesPresenter @Inject constructor(
@@ -24,13 +24,13 @@ internal class ReadLaterArticlesPresenter @Inject constructor(
 
     fun getReadLaterArticles() {
         useCase.getReadLaterArticles()
-            .onStart { viewState.onSuccessArticles(listOf(LoadingItem)) }
-            .catch { viewState.onSuccessArticles(listOf(ErrorItem)) }
-            .onEach { it ->
+            .onStart { viewState.onSuccessArticles(LoadingListEvent.LoadingState) }
+            .onEach {
                 if (it.articles.isNotEmpty())
-                    viewState.onSuccessArticles(it.articles.map { ArticleItem(it) })
-                else viewState.onSuccessArticles(listOf(EmptyItem))
+                    viewState.onSuccessArticles(LoadingListEvent.SuccessState(it.articles))
+                else viewState.onSuccessArticles(LoadingListEvent.EmptyState)
             }
+            .catch { viewState.onSuccessArticles(LoadingListEvent.ErrorState(it.message)) }
             .launchIn(presenterScope)
     }
 

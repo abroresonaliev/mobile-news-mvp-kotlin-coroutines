@@ -4,9 +4,9 @@ import kotlinx.coroutines.flow.*
 import moxy.MvpPresenter
 import moxy.presenterScope
 import uz.icerbersoft.mobilenews.app.global.router.GlobalRouter
+import uz.icerbersoft.mobilenews.app.support.event.LoadingListEvent.*
 import uz.icerbersoft.mobilenews.data.model.article.Article
-import uz.icerbersoft.mobilenews.app.usecase.article.detail.model.ArticleWrapper.*
-import uz.icerbersoft.mobilenews.app.usecase.article.list.ArticleListUseCase
+import uz.icerbersoft.mobilenews.domain.usecase.article.list.ArticleListUseCase
 import javax.inject.Inject
 
 internal class DashboardArticlesPresenter @Inject constructor(
@@ -21,13 +21,13 @@ internal class DashboardArticlesPresenter @Inject constructor(
 
     fun getBreakingArticles() {
         useCase.getBreakingArticles()
-            .onStart { viewState.onDefinedBreakingArticleWrappers(listOf(LoadingItem)) }
-            .catch { viewState.onDefinedBreakingArticleWrappers(listOf(ErrorItem)) }
-            .onEach { it ->
+            .onStart { viewState.onDefinedBreakingArticleEvents(LoadingState) }
+            .onEach {
                 if (it.articles.isNotEmpty())
-                    viewState.onDefinedBreakingArticleWrappers(it.articles.map { ArticleItem(it) })
-                else viewState.onDefinedBreakingArticleWrappers(listOf(EmptyItem))
+                    viewState.onDefinedBreakingArticleEvents(SuccessState(it.articles))
+                else viewState.onDefinedBreakingArticleEvents(EmptyState)
             }
+            .catch { viewState.onDefinedBreakingArticleEvents(ErrorState(it.message)) }
             .launchIn(presenterScope)
     }
 
@@ -36,13 +36,13 @@ internal class DashboardArticlesPresenter @Inject constructor(
             .debounce(2000)
             .flatMapConcat {
                 useCase.getTopArticles()
-                    .onStart { viewState.onDefinedTopArticleWrappers(listOf(LoadingItem)) }
-                    .catch { viewState.onDefinedTopArticleWrappers(listOf(ErrorItem)) }
+                    .onStart { viewState.onDefinedTopArticleWrappers(LoadingState) }
                     .onEach { it ->
                         if (it.articles.isNotEmpty())
-                            viewState.onDefinedTopArticleWrappers(it.articles.map { ArticleItem(it) })
-                        else viewState.onDefinedTopArticleWrappers(listOf(EmptyItem))
+                            viewState.onDefinedTopArticleWrappers(SuccessState(it.articles))
+                        else viewState.onDefinedTopArticleWrappers(EmptyState)
                     }
+                    .catch { viewState.onDefinedTopArticleWrappers(ErrorState(it.message)) }
             }
             .launchIn(presenterScope)
     }

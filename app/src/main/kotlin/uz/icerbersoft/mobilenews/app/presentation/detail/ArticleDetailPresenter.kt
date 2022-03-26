@@ -8,7 +8,7 @@ import moxy.MvpPresenter
 import moxy.presenterScope
 import uz.icerbersoft.mobilenews.app.presentation.detail.router.ArticleDetailRouter
 import uz.icerbersoft.mobilenews.data.model.article.Article
-import uz.icerbersoft.mobilenews.app.usecase.article.detail.ArticleDetailUseCase
+import uz.icerbersoft.mobilenews.domain.usecase.article.detail.ArticleDetailUseCase
 import javax.inject.Inject
 import kotlin.properties.Delegates
 

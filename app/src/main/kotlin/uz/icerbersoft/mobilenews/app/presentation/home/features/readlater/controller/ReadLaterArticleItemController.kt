@@ -4,21 +4,20 @@ import android.view.ViewGroup
 import ru.surfstudio.android.easyadapter.controller.BindableItemController
 import ru.surfstudio.android.easyadapter.holder.BindableViewHolder
 import uz.icerbersoft.mobilenews.R
-import uz.icerbersoft.mobilenews.databinding.ViewHolderReadLaterArticleBinding
 import uz.icerbersoft.mobilenews.data.model.article.Article
-import uz.icerbersoft.mobilenews.app.usecase.article.detail.model.ArticleWrapper.ArticleItem
+import uz.icerbersoft.mobilenews.databinding.ViewHolderReadLaterArticleBinding
 
 internal class ReadLaterArticleItemController(
     private val itemClickListener: (product: Article) -> Unit,
     private val bookmarkListener: (Article) -> Unit
-) : BindableItemController<ArticleItem, ReadLaterArticleItemController.Holder>() {
+) : BindableItemController<Article, ReadLaterArticleItemController.Holder>() {
 
     override fun createViewHolder(parent: ViewGroup): Holder = Holder(parent)
 
-    override fun getItemId(data: ArticleItem) = "$ID_TAG${data.article.articleId}"
+    override fun getItemId(data: Article) = "$ID_TAG${data.articleId}"
 
     inner class Holder(parent: ViewGroup) :
-        BindableViewHolder<ArticleItem>(parent, R.layout.view_holder_read_later_article) {
+        BindableViewHolder<Article>(parent, R.layout.view_holder_read_later_article) {
 
         private lateinit var article: Article
         private val binding = ViewHolderReadLaterArticleBinding.bind(itemView)
@@ -34,15 +33,15 @@ internal class ReadLaterArticleItemController(
             }
         }
 
-        override fun bind(data: ArticleItem) {
-            article = data.article
+        override fun bind(data: Article) {
+            article = data
             with(binding) {
-                titleTextView.text = data.article.title
-                sourceTextView.text = data.article.source.name
-                publishedAtTextView.text = data.article.publishedAt
-                imageSimpleImageView.setImageURI(data.article.imageUrl)
+                titleTextView.text = data.title
+                sourceTextView.text = data.source.name
+                publishedAtTextView.text = data.publishedAt
+                imageSimpleImageView.setImageURI(data.imageUrl)
 //                bookmarkImageView.apply {
-//                    if (data.article.isBookmarked) setImageResource(R.drawable.drawable_bookmark)
+//                    if (data.isBookmarked) setImageResource(R.drawable.drawable_bookmark)
 //                    else setImageResource(R.drawable.drawable_bookmark_border)
 //                }
             }
@@ -50,6 +49,6 @@ internal class ReadLaterArticleItemController(
     }
 
     private companion object {
-        const val ID_TAG = "ArticleItemController"
+        const val ID_TAG = "ReadLaterArticleItemController"
     }
 }

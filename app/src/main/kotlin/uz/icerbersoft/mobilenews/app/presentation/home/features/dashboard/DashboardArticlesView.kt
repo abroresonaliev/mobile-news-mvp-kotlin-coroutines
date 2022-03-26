@@ -1,11 +1,12 @@
 package uz.icerbersoft.mobilenews.app.presentation.home.features.dashboard
 
 import moxy.MvpView
-import uz.icerbersoft.mobilenews.app.usecase.article.detail.model.ArticleWrapper
+import uz.icerbersoft.mobilenews.app.support.event.LoadingListEvent
+import uz.icerbersoft.mobilenews.data.model.article.Article
 
 interface DashboardArticlesView : MvpView {
 
-    fun onDefinedBreakingArticleWrappers(articles: List<ArticleWrapper>)
+    fun onDefinedBreakingArticleEvents(event: LoadingListEvent<Article>)
 
-    fun onDefinedTopArticleWrappers(articles: List<ArticleWrapper>)
+    fun onDefinedTopArticleWrappers(event: LoadingListEvent<Article>)
 }

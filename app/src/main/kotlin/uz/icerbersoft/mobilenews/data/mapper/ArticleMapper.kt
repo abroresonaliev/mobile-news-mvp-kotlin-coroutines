@@ -4,7 +4,7 @@ import uz.icerbersoft.mobilenews.data.model.article.Article
 import uz.icerbersoft.mobilenews.data.model.article.ArticleEntity
 import uz.icerbersoft.mobilenews.data.model.article.Source
 import uz.icerbersoft.mobilenews.data.model.article.response.ArticleResponse
-import uz.icerbersoft.mobilenews.data.utils.date.mapToString
+import uz.icerbersoft.mobilenews.data.utils.date.toFormattedDate
 
 internal fun ArticleEntity.entityToArticle(): Article =
     Article(
@@ -41,7 +41,7 @@ internal fun ArticleResponse.responseToEntity(): ArticleEntity =
         author = author ?: "",
         content = content ?: "",
         description = description ?: "",
-        publishedAt = publishedAt?.mapToString("MMM dd hh:mm") ?: "",
+        publishedAt = publishedAt?.toFormattedDate() ?: "",
         source = source.name,
         sourceId = source.id,
         title = title,

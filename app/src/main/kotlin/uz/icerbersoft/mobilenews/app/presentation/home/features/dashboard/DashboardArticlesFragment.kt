@@ -10,16 +10,20 @@ import moxy.ktx.moxyPresenter
 import ru.surfstudio.android.easyadapter.EasyAdapter
 import ru.surfstudio.android.easyadapter.ItemList
 import uz.icerbersoft.mobilenews.R
-import uz.icerbersoft.mobilenews.databinding.FragmentDashboardArticlesBinding
 import uz.icerbersoft.mobilenews.app.presentation.home.features.dashboard.controller.BreakingArticleItemController
 import uz.icerbersoft.mobilenews.app.presentation.home.features.dashboard.controller.TopArticleItemController
 import uz.icerbersoft.mobilenews.app.presentation.home.features.dashboard.di.DashboardArticlesDaggerComponent
 import uz.icerbersoft.mobilenews.app.support.controller.StateEmptyItemController
 import uz.icerbersoft.mobilenews.app.support.controller.StateErrorItemController
 import uz.icerbersoft.mobilenews.app.support.controller.StateLoadingItemController
+import uz.icerbersoft.mobilenews.app.support.event.LoadingListEvent
+import uz.icerbersoft.mobilenews.app.support.event.LoadingListEvent.*
 import uz.icerbersoft.mobilenews.app.utils.addCallback
 import uz.icerbersoft.mobilenews.app.utils.onBackPressedDispatcher
-import uz.icerbersoft.mobilenews.app.usecase.article.detail.model.ArticleWrapper
+import uz.icerbersoft.mobilenews.data.model.article.Article
+import uz.icerbersoft.mobilenews.data.utils.date.toFormattedDate
+import uz.icerbersoft.mobilenews.databinding.FragmentDashboardArticlesBinding
+import java.util.*
 import javax.inject.Inject
 
 internal class DashboardArticlesFragment :
@@ -65,6 +69,7 @@ internal class DashboardArticlesFragment :
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDashboardArticlesBinding.bind(view)
         with(binding) {
+            todayDateTv.text = Date().toFormattedDate("EEEE, dd MMMM")
             breakingArticleRv.adapter = breakingArticlesAdapter
             breakingArticleRv.itemAnimator = null
             topArticleRv.adapter = topArticlesAdapter
@@ -72,28 +77,24 @@ internal class DashboardArticlesFragment :
         }
     }
 
-    override fun onDefinedBreakingArticleWrappers(articles: List<ArticleWrapper>) {
+    override fun onDefinedBreakingArticleEvents(event: LoadingListEvent<Article>) {
         val itemList = ItemList.create()
-        for (item in articles) {
-            when (item) {
-                is ArticleWrapper.ArticleItem -> itemList.add(item, breakingArticleController)
-                is ArticleWrapper.EmptyItem -> itemList.add(breakingEmptyController)
-                is ArticleWrapper.ErrorItem -> itemList.add(breakingErrorController)
-                is ArticleWrapper.LoadingItem -> itemList.add(breakingLoadingController)
-            }
+        when (event) {
+            is LoadingState -> itemList.add(breakingLoadingController)
+            is SuccessState -> itemList.addAll(event.data, breakingArticleController)
+            is EmptyState -> itemList.add(breakingEmptyController)
+            is ErrorState -> itemList.add(breakingErrorController)
         }
         breakingArticlesAdapter.setItems(itemList)
     }
 
-    override fun onDefinedTopArticleWrappers(articles: List<ArticleWrapper>) {
+    override fun onDefinedTopArticleWrappers(event: LoadingListEvent<Article>) {
         val itemList = ItemList.create()
-        for (item in articles) {
-            when (item) {
-                is ArticleWrapper.ArticleItem -> itemList.add(item, topArticleController)
-                is ArticleWrapper.EmptyItem -> itemList.add(topEmptyController)
-                is ArticleWrapper.ErrorItem -> itemList.add(topErrorController)
-                is ArticleWrapper.LoadingItem -> itemList.add(topLoadingController)
-            }
+        when (event) {
+            is LoadingState -> itemList.add(topLoadingController)
+            is SuccessState -> itemList.addAll(event.data, topArticleController)
+            is EmptyState -> itemList.add(topEmptyController)
+            is ErrorState -> itemList.add(topErrorController)
         }
         topArticlesAdapter.setItems(itemList)
     }

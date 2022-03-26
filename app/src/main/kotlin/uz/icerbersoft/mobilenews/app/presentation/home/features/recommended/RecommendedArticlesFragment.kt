@@ -10,15 +10,17 @@ import moxy.ktx.moxyPresenter
 import ru.surfstudio.android.easyadapter.EasyAdapter
 import ru.surfstudio.android.easyadapter.ItemList
 import uz.icerbersoft.mobilenews.R
-import uz.icerbersoft.mobilenews.databinding.FragmentRecommendedArticlesBinding
 import uz.icerbersoft.mobilenews.app.presentation.home.features.recommended.controller.RecommendedArticleItemController
 import uz.icerbersoft.mobilenews.app.presentation.home.features.recommended.di.RecommendedArticlesDaggerComponent
 import uz.icerbersoft.mobilenews.app.support.controller.StateEmptyItemController
 import uz.icerbersoft.mobilenews.app.support.controller.StateErrorItemController
 import uz.icerbersoft.mobilenews.app.support.controller.StateLoadingItemController
+import uz.icerbersoft.mobilenews.app.support.event.LoadingListEvent
+import uz.icerbersoft.mobilenews.app.support.event.LoadingListEvent.*
 import uz.icerbersoft.mobilenews.app.utils.addCallback
 import uz.icerbersoft.mobilenews.app.utils.onBackPressedDispatcher
-import uz.icerbersoft.mobilenews.app.usecase.article.detail.model.ArticleWrapper
+import uz.icerbersoft.mobilenews.data.model.article.Article
+import uz.icerbersoft.mobilenews.databinding.FragmentRecommendedArticlesBinding
 import javax.inject.Inject
 
 internal class RecommendedArticlesFragment :
@@ -46,7 +48,7 @@ internal class RecommendedArticlesFragment :
         bookmarkListener = { presenter.updateBookmark(it) }
     )
     private val stateLoadingController = StateLoadingItemController(true)
-    private val stateEmptyItemController = StateEmptyItemController(true)
+    private val stateEmptyController = StateEmptyItemController(true)
     private val stateErrorController =
         StateErrorItemController(true) { presenter.getRecommendedArticles() }
 
@@ -59,15 +61,13 @@ internal class RecommendedArticlesFragment :
         }
     }
 
-    override fun onSuccessArticles(articles: List<ArticleWrapper>) {
+    override fun onSuccessArticles(event: LoadingListEvent<Article>) {
         val itemList = ItemList.create()
-        for (item in articles) {
-            when (item) {
-                is ArticleWrapper.ArticleItem -> itemList.add(item, articleController)
-                is ArticleWrapper.EmptyItem -> itemList.add(stateEmptyItemController)
-                is ArticleWrapper.ErrorItem -> itemList.add(stateErrorController)
-                is ArticleWrapper.LoadingItem -> itemList.add(stateLoadingController)
-            }
+        when (event) {
+            is LoadingState -> itemList.add(stateLoadingController)
+            is SuccessState -> itemList.addAll(event.data, articleController)
+            is EmptyState -> itemList.add(stateEmptyController)
+            is ErrorState -> itemList.add(stateErrorController)
         }
         easyAdapter.setItems(itemList)
     }

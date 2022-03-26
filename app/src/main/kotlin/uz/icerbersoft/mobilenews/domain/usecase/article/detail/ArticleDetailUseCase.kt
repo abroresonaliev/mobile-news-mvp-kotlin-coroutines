@@ -1,4 +1,4 @@
-package uz.icerbersoft.mobilenews.app.usecase.article.detail
+package uz.icerbersoft.mobilenews.domain.usecase.article.detail
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
