@@ -12,7 +12,6 @@
 
     <color name="color_icon">#C7C8CC</color>
     <color name="color_secondary_text_color">#8E8E93</color>
-    <color name="color_background">#FDFDFD</color>
-
+    <color name="color_background">#F0F0F0</color>
 
 </resources>

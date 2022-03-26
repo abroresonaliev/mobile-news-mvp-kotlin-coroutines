@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Mobile-News MVP Coroutines</string>
 
-    <string name="title_bottom_dashboard">Today</string>
+    <string name="title_bottom_dashboard">Breaking news</string>
     <string name="title_bottom_recommended">For you</string>
     <string name="title_bottom_read_later">Read later</string>
 

@@ -28,11 +28,11 @@
 
     <style name="Theme.MobileNews.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light">
         <item name="elevation">0dp</item>
-        <item name="android:background">@color/color_background</item>
+<!--        <item name="android:background">@color/color_background</item>-->
     </style>
 
     <style name="Theme.MobileNews.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
-        <item name="android:background">@color/color_background</item>
+<!--        <item name="android:background">@color/color_background</item>-->
         <item name="android:fontFamily">@font/font_family_rubik</item>
     </style>
 
