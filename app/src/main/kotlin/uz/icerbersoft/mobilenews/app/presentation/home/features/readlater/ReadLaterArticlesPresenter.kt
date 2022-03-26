@@ -9,12 +9,12 @@ import moxy.presenterScope
 import uz.icerbersoft.mobilenews.app.global.router.GlobalRouter
 import uz.icerbersoft.mobilenews.app.presentation.home.router.HomeRouter
 import uz.icerbersoft.mobilenews.data.model.article.Article
-import uz.icerbersoft.mobilenews.domain.interactor.article.detail.model.ArticleWrapper.*
-import uz.icerbersoft.mobilenews.domain.interactor.article.list.ArticleListInteractor
+import uz.icerbersoft.mobilenews.app.usecase.article.detail.model.ArticleWrapper.*
+import uz.icerbersoft.mobilenews.app.usecase.article.list.ArticleListUseCase
 import javax.inject.Inject
 
 internal class ReadLaterArticlesPresenter @Inject constructor(
-    private val interactor: ArticleListInteractor,
+    private val useCase: ArticleListUseCase,
     private val globalRouter: GlobalRouter,
     private val homeRouter: HomeRouter
 ) : MvpPresenter<ReadLaterArticlesView>() {
@@ -23,7 +23,7 @@ internal class ReadLaterArticlesPresenter @Inject constructor(
         getReadLaterArticles()
 
     fun getReadLaterArticles() {
-        interactor.getReadLaterArticles()
+        useCase.getReadLaterArticles()
             .onStart { viewState.onSuccessArticles(listOf(LoadingItem)) }
             .catch { viewState.onSuccessArticles(listOf(ErrorItem)) }
             .onEach { it ->
@@ -35,7 +35,7 @@ internal class ReadLaterArticlesPresenter @Inject constructor(
     }
 
     fun updateBookmark(article: Article) {
-        interactor.updateBookmark(article)
+        useCase.updateBookmark(article)
             .launchIn(presenterScope)
     }
 

@@ -1,4 +1,2 @@
-include ':domain'
-include ':data'
 include ':app'
 rootProject.name = "Mobile News MVP Kotlin Coroutines"

@@ -8,8 +8,8 @@ import me.vponomarenko.injectionmanager.IHasComponent
 import me.vponomarenko.injectionmanager.x.XInjectionManager
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
-import uz.icerbersoft.mobilenews.app.R
-import uz.icerbersoft.mobilenews.app.databinding.FragmentArticleDetailBinding
+import uz.icerbersoft.mobilenews.R
+import uz.icerbersoft.mobilenews.databinding.FragmentArticleDetailBinding
 import uz.icerbersoft.mobilenews.app.presentation.detail.di.ArticleDetailDaggerComponent
 import uz.icerbersoft.mobilenews.app.utils.addCallback
 import uz.icerbersoft.mobilenews.app.utils.onBackPressedDispatcher

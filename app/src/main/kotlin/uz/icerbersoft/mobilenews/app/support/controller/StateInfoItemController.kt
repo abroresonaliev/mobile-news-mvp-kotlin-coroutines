@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView.LayoutParams.MATCH_PARENT
 import androidx.recyclerview.widget.RecyclerView.LayoutParams.WRAP_CONTENT
 import ru.surfstudio.android.easyadapter.controller.NoDataItemController
 import ru.surfstudio.android.easyadapter.holder.BaseViewHolder
-import uz.icerbersoft.mobilenews.app.R
+import uz.icerbersoft.mobilenews.R
 
 class StateInfoItemController(
     private val isFullScreen: Boolean = false,

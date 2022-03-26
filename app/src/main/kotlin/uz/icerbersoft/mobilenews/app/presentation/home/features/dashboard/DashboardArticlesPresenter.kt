@@ -5,12 +5,12 @@ import moxy.MvpPresenter
 import moxy.presenterScope
 import uz.icerbersoft.mobilenews.app.global.router.GlobalRouter
 import uz.icerbersoft.mobilenews.data.model.article.Article
-import uz.icerbersoft.mobilenews.domain.interactor.article.detail.model.ArticleWrapper.*
-import uz.icerbersoft.mobilenews.domain.interactor.article.list.ArticleListInteractor
+import uz.icerbersoft.mobilenews.app.usecase.article.detail.model.ArticleWrapper.*
+import uz.icerbersoft.mobilenews.app.usecase.article.list.ArticleListUseCase
 import javax.inject.Inject
 
 internal class DashboardArticlesPresenter @Inject constructor(
-    private val interactor: ArticleListInteractor,
+    private val useCase: ArticleListUseCase,
     private val router: GlobalRouter
 ) : MvpPresenter<DashboardArticlesView>() {
 
@@ -20,7 +20,7 @@ internal class DashboardArticlesPresenter @Inject constructor(
     }
 
     fun getBreakingArticles() {
-        interactor.getBreakingArticles()
+        useCase.getBreakingArticles()
             .onStart { viewState.onDefinedBreakingArticleWrappers(listOf(LoadingItem)) }
             .catch { viewState.onDefinedBreakingArticleWrappers(listOf(ErrorItem)) }
             .onEach { it ->
@@ -35,7 +35,7 @@ internal class DashboardArticlesPresenter @Inject constructor(
         flowOf(Unit)
             .debounce(2000)
             .flatMapConcat {
-                interactor.getTopArticles()
+                useCase.getTopArticles()
                     .onStart { viewState.onDefinedTopArticleWrappers(listOf(LoadingItem)) }
                     .catch { viewState.onDefinedTopArticleWrappers(listOf(ErrorItem)) }
                     .onEach { it ->
@@ -48,7 +48,7 @@ internal class DashboardArticlesPresenter @Inject constructor(
     }
 
     fun updateBookmark(article: Article) {
-        interactor.updateBookmark(article)
+        useCase.updateBookmark(article)
             .launchIn(presenterScope)
     }
 

@@ -8,12 +8,12 @@ import moxy.MvpPresenter
 import moxy.presenterScope
 import uz.icerbersoft.mobilenews.app.presentation.detail.router.ArticleDetailRouter
 import uz.icerbersoft.mobilenews.data.model.article.Article
-import uz.icerbersoft.mobilenews.domain.interactor.article.detail.ArticleDetailInteractor
+import uz.icerbersoft.mobilenews.app.usecase.article.detail.ArticleDetailUseCase
 import javax.inject.Inject
 import kotlin.properties.Delegates
 
 class ArticleDetailPresenter @Inject constructor(
-    private val interactor: ArticleDetailInteractor,
+    private val useCase: ArticleDetailUseCase,
     private val router: ArticleDetailRouter
 ) : MvpPresenter<ArticleDetailView>() {
 
@@ -27,14 +27,14 @@ class ArticleDetailPresenter @Inject constructor(
         getArticleDetail()
 
     fun getArticleDetail() {
-        interactor.getArticle(currentArticleId)
+        useCase.getArticle(currentArticleId)
             .onEach { viewState.onSuccessArticleDetail(it) }
             .launchIn(presenterScope)
     }
 
     fun updateBookmark(article: Article) {
         presenterScope.launch {
-            interactor
+            useCase
                 .updateBookmark(article)
                 .collect { }
         }

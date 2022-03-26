@@ -3,10 +3,10 @@ package uz.icerbersoft.mobilenews.app.presentation.home.features.recommended.con
 import android.view.ViewGroup
 import ru.surfstudio.android.easyadapter.controller.BindableItemController
 import ru.surfstudio.android.easyadapter.holder.BindableViewHolder
-import uz.icerbersoft.mobilenews.app.R
-import uz.icerbersoft.mobilenews.app.databinding.ViewHolderRecommendedArticleBinding
+import uz.icerbersoft.mobilenews.R
+import uz.icerbersoft.mobilenews.databinding.ViewHolderRecommendedArticleBinding
 import uz.icerbersoft.mobilenews.data.model.article.Article
-import uz.icerbersoft.mobilenews.domain.interactor.article.detail.model.ArticleWrapper.ArticleItem
+import uz.icerbersoft.mobilenews.app.usecase.article.detail.model.ArticleWrapper.ArticleItem
 
 internal class RecommendedArticleItemController(
     private val itemClickListener: (product: Article) -> Unit,

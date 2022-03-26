@@ -9,7 +9,7 @@ import moxy.ktx.moxyPresenter
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
-import uz.icerbersoft.mobilenews.app.databinding.ActivityGlobalBinding
+import uz.icerbersoft.mobilenews.databinding.ActivityGlobalBinding
 import uz.icerbersoft.mobilenews.app.global.di.GlobalDaggerComponent
 import uz.icerbersoft.mobilenews.app.global.router.GlobalRouter
 import javax.inject.Inject

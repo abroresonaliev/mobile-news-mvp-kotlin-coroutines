@@ -9,8 +9,8 @@ import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 import ru.surfstudio.android.easyadapter.EasyAdapter
 import ru.surfstudio.android.easyadapter.ItemList
-import uz.icerbersoft.mobilenews.app.R
-import uz.icerbersoft.mobilenews.app.databinding.FragmentRecommendedArticlesBinding
+import uz.icerbersoft.mobilenews.R
+import uz.icerbersoft.mobilenews.databinding.FragmentRecommendedArticlesBinding
 import uz.icerbersoft.mobilenews.app.presentation.home.features.recommended.controller.RecommendedArticleItemController
 import uz.icerbersoft.mobilenews.app.presentation.home.features.recommended.di.RecommendedArticlesDaggerComponent
 import uz.icerbersoft.mobilenews.app.support.controller.StateEmptyItemController
@@ -18,7 +18,7 @@ import uz.icerbersoft.mobilenews.app.support.controller.StateErrorItemController
 import uz.icerbersoft.mobilenews.app.support.controller.StateLoadingItemController
 import uz.icerbersoft.mobilenews.app.utils.addCallback
 import uz.icerbersoft.mobilenews.app.utils.onBackPressedDispatcher
-import uz.icerbersoft.mobilenews.domain.interactor.article.detail.model.ArticleWrapper
+import uz.icerbersoft.mobilenews.app.usecase.article.detail.model.ArticleWrapper
 import javax.inject.Inject
 
 internal class RecommendedArticlesFragment :
