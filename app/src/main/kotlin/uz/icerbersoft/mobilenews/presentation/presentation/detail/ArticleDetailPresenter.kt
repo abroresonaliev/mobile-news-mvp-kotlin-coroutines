@@ -26,7 +26,7 @@ class ArticleDetailPresenter @Inject constructor(
     override fun onFirstViewAttach() =
         getArticleDetail()
 
-    fun getArticleDetail() {
+    private fun getArticleDetail() {
         useCase.getArticle(currentArticleId)
             .onEach { viewState.onSuccessArticleDetail(it) }
             .launchIn(presenterScope)
