@@ -3,7 +3,6 @@ package uz.icerbersoft.mobilenews.presentation.presentation.home.features.readla
 import android.os.Bundle
 import android.view.View
 import dagger.Lazy
-import me.vponomarenko.injectionmanager.x.XInjectionManager
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 import ru.surfstudio.android.easyadapter.EasyAdapter

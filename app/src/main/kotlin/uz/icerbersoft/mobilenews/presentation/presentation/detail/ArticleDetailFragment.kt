@@ -38,17 +38,28 @@ internal class ArticleDetailFragment : MvpAppCompatFragment(R.layout.fragment_ar
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentArticleDetailBinding.bind(view)
+
+        with(binding){
+            backIv.setOnClickListener { onBackPressedDispatcher.onBackPressed() }
+        }
     }
 
     override fun onSuccessArticleDetail(article: Article) {
         with(binding) {
-            imageSimpleImageView.setImageURI(article.imageUrl)
+            detailImageSdv.setImageURI(article.imageUrl)
             publishedAtTextView.text = article.publishedAt
             titleTextView.text = article.title
             sourceTextView.text = article.source.name
             contentTextView.text = article.content
 
-            shareButton.setOnClickListener {
+            bookmarkIv.apply {
+                if (article.isBookmarked) setImageResource(R.drawable.ic_bookmark)
+                else setImageResource(R.drawable.ic_bookmark_border)
+            }
+
+            bookmarkIv.setOnClickListener { presenter.updateBookmark(article) }
+
+            shareIv.setOnClickListener {
                 val shareText =
                     "${article.title}\n\nMobile news - interesting news in your mobile.\n\n${article.url}"
 
