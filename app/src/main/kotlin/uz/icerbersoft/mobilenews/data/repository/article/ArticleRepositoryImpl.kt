@@ -3,17 +3,18 @@ package uz.icerbersoft.mobilenews.data.repository.article
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.*
 import uz.icerbersoft.mobilenews.data.datasource.database.dao.article.ArticleEntityDao
-import uz.icerbersoft.mobilenews.data.datasource.rest.service.RestService
+import uz.icerbersoft.mobilenews.data.datasource.rest.service.ArticleRestService
 import uz.icerbersoft.mobilenews.data.mapper.entityToArticle
 import uz.icerbersoft.mobilenews.data.mapper.responseToEntity
-import uz.icerbersoft.mobilenews.data.model.article.Article
-import uz.icerbersoft.mobilenews.data.model.article.ArticleListWrapper
+import uz.icerbersoft.mobilenews.domain.data.entity.article.Article
+import uz.icerbersoft.mobilenews.domain.data.entity.article.ArticleListWrapper
+import uz.icerbersoft.mobilenews.domain.data.repository.article.ArticleRepository
 import java.net.ConnectException
 import java.net.UnknownHostException
 
 internal class ArticleRepositoryImpl(
     private val articleEntityDao: ArticleEntityDao,
-    private val restService: RestService
+    private val articleRestService: ArticleRestService
 ) : ArticleRepository {
 
     override fun getArticle(articleId: String): Flow<Article> {
@@ -22,7 +23,7 @@ internal class ArticleRepositoryImpl(
 
     @FlowPreview
     override fun getArticles(): Flow<ArticleListWrapper> {
-        return restService.getBreakingArticles()
+        return articleRestService.getBreakingArticles()
             .onEach { it ->
                 it.articles.forEach {
                     articleEntityDao.updateArticle(it.responseToEntity())
@@ -46,7 +47,7 @@ internal class ArticleRepositoryImpl(
 
     @FlowPreview
     override fun getBreakingNewsArticles(): Flow<ArticleListWrapper> {
-        return restService.getBreakingArticles()
+        return articleRestService.getBreakingArticles()
             .onEach { it ->
                 it.articles.forEach {
                     articleEntityDao.updateArticle(it.responseToEntity())
@@ -70,7 +71,7 @@ internal class ArticleRepositoryImpl(
 
     @FlowPreview
     override fun getTopArticles(): Flow<ArticleListWrapper> {
-        return restService.getTopArticles()
+        return articleRestService.getTopArticles()
             .onEach { it ->
                 it.articles.forEach {
                     articleEntityDao.updateArticle(it.responseToEntity())
@@ -94,7 +95,7 @@ internal class ArticleRepositoryImpl(
 
     @FlowPreview
     override fun getRecommendedArticles(): Flow<ArticleListWrapper> {
-        return restService.getRecommendedArticles()
+        return articleRestService.getRecommendedArticles()
             .onEach { it ->
                 it.articles.forEach {
                     articleEntityDao.updateArticle(it.responseToEntity())

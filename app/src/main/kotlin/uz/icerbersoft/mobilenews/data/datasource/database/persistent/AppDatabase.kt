@@ -4,12 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import uz.icerbersoft.mobilenews.data.datasource.database.converter.RoomTypeConverters
 import uz.icerbersoft.mobilenews.data.datasource.database.dao.article.ArticleEntityDao
-import uz.icerbersoft.mobilenews.data.model.article.ArticleEntity
+import uz.icerbersoft.mobilenews.domain.data.entity.article.ArticleEntity
 
-@TypeConverters(RoomTypeConverters::class)
 @Database(
     entities = [
         ArticleEntity::class

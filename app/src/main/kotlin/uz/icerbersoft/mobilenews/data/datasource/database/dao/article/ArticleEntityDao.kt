@@ -2,7 +2,7 @@ package uz.icerbersoft.mobilenews.data.datasource.database.dao.article
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
-import uz.icerbersoft.mobilenews.data.model.article.ArticleEntity
+import uz.icerbersoft.mobilenews.domain.data.entity.article.ArticleEntity
 
 @Dao
 internal abstract class ArticleEntityDao {

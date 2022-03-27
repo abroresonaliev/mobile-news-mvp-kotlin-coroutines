@@ -3,9 +3,9 @@ package uz.icerbersoft.mobilenews.domain.usecase.article.list
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
-import uz.icerbersoft.mobilenews.data.model.article.Article
-import uz.icerbersoft.mobilenews.data.model.article.ArticleListWrapper
-import uz.icerbersoft.mobilenews.data.repository.article.ArticleRepository
+import uz.icerbersoft.mobilenews.domain.data.entity.article.Article
+import uz.icerbersoft.mobilenews.domain.data.entity.article.ArticleListWrapper
+import uz.icerbersoft.mobilenews.domain.data.repository.article.ArticleRepository
 import javax.inject.Inject
 
 class ArticleListUseCase @Inject constructor(

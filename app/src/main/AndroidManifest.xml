@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:name="uz.icerbersoft.mobilenews.app.application.Application"
+        android:name="uz.icerbersoft.mobilenews.presentation.application.Application"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,9 +16,10 @@
         android:theme="@style/Theme.MobileNews">
 
         <activity
-            android:name="uz.icerbersoft.mobilenews.app.global.GlobalActivity"
+            android:name="uz.icerbersoft.mobilenews.presentation.global.GlobalActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.MobileNews.NoActionBar">
+            android:theme="@style/Theme.MobileNews.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
