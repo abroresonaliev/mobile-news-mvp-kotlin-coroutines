@@ -3,8 +3,6 @@ package uz.icerbersoft.mobilenews.presentation.presentation.home
 import android.os.Bundle
 import android.view.View
 import dagger.Lazy
-import me.vponomarenko.injectionmanager.IHasComponent
-import me.vponomarenko.injectionmanager.x.XInjectionManager
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 import ru.terrakok.cicerone.NavigatorHolder
@@ -12,7 +10,6 @@ import ru.terrakok.cicerone.android.support.SupportAppNavigator
 import uz.icerbersoft.mobilenews.R
 import uz.icerbersoft.mobilenews.databinding.FragmentHomeBinding
 import uz.icerbersoft.mobilenews.presentation.global.GlobalActivity
-import uz.icerbersoft.mobilenews.presentation.presentation.home.di.HomeDaggerComponent
 import uz.icerbersoft.mobilenews.presentation.presentation.home.router.HomeRouter
 import javax.inject.Inject
 
