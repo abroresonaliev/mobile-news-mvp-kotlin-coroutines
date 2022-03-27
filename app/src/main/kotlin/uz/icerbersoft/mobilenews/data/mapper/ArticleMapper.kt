@@ -1,9 +1,9 @@
 package uz.icerbersoft.mobilenews.data.mapper
 
-import uz.icerbersoft.mobilenews.data.model.article.Article
-import uz.icerbersoft.mobilenews.data.model.article.ArticleEntity
-import uz.icerbersoft.mobilenews.data.model.article.Source
-import uz.icerbersoft.mobilenews.data.model.article.response.ArticleResponse
+import uz.icerbersoft.mobilenews.domain.data.entity.article.Article
+import uz.icerbersoft.mobilenews.domain.data.entity.article.ArticleEntity
+import uz.icerbersoft.mobilenews.domain.data.entity.source.Source
+import uz.icerbersoft.mobilenews.domain.data.entity.article.ArticleResponse
 import uz.icerbersoft.mobilenews.data.utils.date.toFormattedDate
 
 internal fun ArticleEntity.entityToArticle(): Article =
