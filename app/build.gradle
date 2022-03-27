@@ -25,16 +25,35 @@ android {
             }
         }
 
+        archivesBaseName = "v${versionName}(${versionCode})-${applicationId}"
     }
 
     buildTypes {
-        debug { applicationVariants.all { variant -> replaceName(variant) } }
+        debug { }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            applicationVariants.all { variant -> replaceName(variant) }
         }
     }
+
+    productFlavors {
+        flavorDimensions "mode"
+
+        prod {
+            dimension "mode"
+            resValue "string", "FLAVOR_NAME", "\"PRODUCTION\""
+            buildConfigField "String", "BASE_URL", "\"https://newsapi.org/v2/\""
+            buildConfigField "boolean", "LOG_ENABLED", "false"
+        }
+
+        dev {
+            dimension "mode"
+            resValue "string", "FLAVOR_NAME", "\"DEVELOPMENT\""
+            buildConfigField "String", "BASE_URL", "\"https://newsapi.org/v2/\""
+            buildConfigField "boolean", "LOG_ENABLED", "true"
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -43,11 +62,6 @@ android {
     buildFeatures { viewBinding = true }
 }
 
-def replaceName(variant) {
-    variant.outputs.all { output ->
-        outputFileName = 'Bozor.com mobile ' + variant.name + '-v' + variant.versionName + '.apk'
-    }
-}
 
 dependencies {
     testImplementation "junit:junit:4.13.2"

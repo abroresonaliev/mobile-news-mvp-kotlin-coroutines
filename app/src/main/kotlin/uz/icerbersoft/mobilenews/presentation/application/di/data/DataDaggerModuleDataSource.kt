@@ -10,6 +10,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.create
+import uz.icerbersoft.mobilenews.BuildConfig
 import uz.icerbersoft.mobilenews.data.datasource.database.dao.article.ArticleEntityDao
 import uz.icerbersoft.mobilenews.data.datasource.database.persistent.AppDatabase
 import uz.icerbersoft.mobilenews.data.datasource.rest.interceptor.logging.HttpLoggingInterceptor
@@ -45,7 +46,7 @@ internal object DataDaggerModuleDataSource {
     fun OkHttpClient(
     ): OkHttpClient =
         OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor())
+            .addInterceptor(HttpLoggingInterceptor(BuildConfig.LOG_ENABLED))
             .retryOnConnectionFailure(false)
             .followRedirects(false)
             .followSslRedirects(false)
@@ -62,7 +63,7 @@ internal object DataDaggerModuleDataSource {
 //        converterFactory: Converter.Factory
     ): Retrofit =
         Retrofit.Builder()
-            .baseUrl("https://newsapi.org/v2/")
+            .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addCallAdapterFactory(FlowCallAdapterFactory)
             .addConverterFactory(Json.Default.actual.asConverterFactory("application/json; charset=utf-8".toMediaType()))
