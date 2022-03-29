@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Mobile-News MVP Coroutines</string>
+    <string name="app_name">MVP Coroutines</string>
 
     <string name="title_bottom_dashboard">Breaking news</string>
     <string name="title_bottom_recommended">For you</string>

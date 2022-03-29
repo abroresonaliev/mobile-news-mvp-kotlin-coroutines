@@ -4,7 +4,7 @@ import kotlinx.coroutines.flow.Flow
 import uz.icerbersoft.mobilenews.domain.data.entity.article.Article
 import uz.icerbersoft.mobilenews.domain.data.entity.article.ArticleListWrapper
 
-interface ReadLaterArticleListUseCase {
+interface ReadLaterArticlesUseCase {
 
     fun getReadLaterArticles(): Flow<ArticleListWrapper>
 

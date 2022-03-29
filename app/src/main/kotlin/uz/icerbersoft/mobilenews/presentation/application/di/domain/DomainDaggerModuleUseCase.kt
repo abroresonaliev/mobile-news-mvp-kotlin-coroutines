@@ -4,14 +4,14 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import uz.icerbersoft.mobilenews.domain.data.repository.article.ArticleRepository
-import uz.icerbersoft.mobilenews.domain.usecase.article.dashboard.DashboardArticleListUseCase
-import uz.icerbersoft.mobilenews.domain.usecase.article.dashboard.DashboardArticleListUseCaseImpl
+import uz.icerbersoft.mobilenews.domain.usecase.article.dashboard.DashboardArticlesUseCase
+import uz.icerbersoft.mobilenews.domain.usecase.article.dashboard.DashboardArticlesUseCaseImpl
 import uz.icerbersoft.mobilenews.domain.usecase.article.detail.ArticleDetailUseCase
 import uz.icerbersoft.mobilenews.domain.usecase.article.detail.ArticleDetailUseCaseImpl
-import uz.icerbersoft.mobilenews.domain.usecase.article.readlater.ReadLaterArticleListUseCase
-import uz.icerbersoft.mobilenews.domain.usecase.article.readlater.ReadLaterArticleListUseCaseImpl
-import uz.icerbersoft.mobilenews.domain.usecase.article.recommended.RecommendedArticleListUseCase
-import uz.icerbersoft.mobilenews.domain.usecase.article.recommended.RecommendedArticleListUseCaseImpl
+import uz.icerbersoft.mobilenews.domain.usecase.article.readlater.ReadLaterArticlesUseCase
+import uz.icerbersoft.mobilenews.domain.usecase.article.readlater.ReadLaterArticlesUseCaseImpl
+import uz.icerbersoft.mobilenews.domain.usecase.article.recommended.RecommendedArticlesUseCase
+import uz.icerbersoft.mobilenews.domain.usecase.article.recommended.RecommendedArticlesUseCaseImpl
 import uz.icerbersoft.mobilenews.domain.usecase.bookmark.BookmarkUseCase
 import uz.icerbersoft.mobilenews.domain.usecase.bookmark.BookmarkUseCaseImpl
 import javax.inject.Singleton
@@ -34,18 +34,18 @@ internal object DomainDaggerModuleUseCase {
 
         @Binds
         fun bindDashboardArticleListUseCase(
-            impl: DashboardArticleListUseCaseImpl
-        ): DashboardArticleListUseCase
+            impl: DashboardArticlesUseCaseImpl
+        ): DashboardArticlesUseCase
 
         @Binds
         fun bindReadLaterArticleListUseCase(
-            impl: ReadLaterArticleListUseCaseImpl
-        ): ReadLaterArticleListUseCase
+            impl: ReadLaterArticlesUseCaseImpl
+        ): ReadLaterArticlesUseCase
 
         @Binds
         fun bindRecommendedArticleListUseCase(
-            impl: RecommendedArticleListUseCaseImpl
-        ): RecommendedArticleListUseCase
+            impl: RecommendedArticlesUseCaseImpl
+        ): RecommendedArticlesUseCase
 
     }
 
