@@ -1,11 +1,9 @@
-package uz.icerbersoft.mobilenews.domain.usecase.article.detail
+package uz.icerbersoft.mobilenews.domain.usecase.bookmark
 
 import kotlinx.coroutines.flow.Flow
 import uz.icerbersoft.mobilenews.domain.data.entity.article.Article
 
-interface ArticleDetailUseCase {
-
-    fun getArticle(articleId: String): Flow<Article>
+interface BookmarkUseCase {
 
     fun updateBookmark(article: Article): Flow<Unit>
 }

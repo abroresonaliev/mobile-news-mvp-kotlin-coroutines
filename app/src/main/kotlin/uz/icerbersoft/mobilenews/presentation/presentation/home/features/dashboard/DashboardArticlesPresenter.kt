@@ -3,14 +3,14 @@ package uz.icerbersoft.mobilenews.presentation.presentation.home.features.dashbo
 import kotlinx.coroutines.flow.*
 import moxy.MvpPresenter
 import moxy.presenterScope
+import uz.icerbersoft.mobilenews.domain.data.entity.article.Article
+import uz.icerbersoft.mobilenews.domain.usecase.article.dashboard.DashboardArticleListUseCase
 import uz.icerbersoft.mobilenews.presentation.global.router.GlobalRouter
 import uz.icerbersoft.mobilenews.presentation.support.event.LoadingListEvent.*
-import uz.icerbersoft.mobilenews.domain.data.entity.article.Article
-import uz.icerbersoft.mobilenews.domain.usecase.article.list.ArticleListUseCase
 import javax.inject.Inject
 
 internal class DashboardArticlesPresenter @Inject constructor(
-    private val useCase: ArticleListUseCase,
+    private val useCase: DashboardArticleListUseCase,
     private val router: GlobalRouter
 ) : MvpPresenter<DashboardArticlesView>() {
 
