@@ -11,8 +11,9 @@ import uz.icerbersoft.mobilenews.domain.data.entity.article.ArticleListWrapper
 import uz.icerbersoft.mobilenews.domain.data.repository.article.ArticleRepository
 import java.net.ConnectException
 import java.net.UnknownHostException
+import javax.inject.Inject
 
-internal class ArticleRepositoryImpl(
+internal class ArticleRepositoryImpl @Inject constructor(
     private val articleEntityDao: ArticleEntityDao,
     private val articleRestService: ArticleRestService
 ) : ArticleRepository {

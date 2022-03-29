@@ -6,15 +6,13 @@ import dagger.Component
 import uz.icerbersoft.mobilenews.presentation.application.Application
 import uz.icerbersoft.mobilenews.presentation.application.di.data.DataDaggerModuleDataSource
 import uz.icerbersoft.mobilenews.presentation.application.di.data.DataDaggerModuleRepository
-import uz.icerbersoft.mobilenews.presentation.global.di.GlobalDaggerComponent
-import uz.icerbersoft.mobilenews.data.repository.RepositoryProvider
 import uz.icerbersoft.mobilenews.presentation.application.di.domain.DomainDaggerModuleUseCase
+import uz.icerbersoft.mobilenews.presentation.global.di.GlobalDaggerComponent
 import javax.inject.Singleton
 
 @Singleton
 @Component(
-    modules =
-    [
+    modules = [
         ApplicationDaggerModule::class,
         ApplicationDaggerModuleSubComponents::class,
         DataDaggerModuleDataSource::class,
@@ -22,7 +20,7 @@ import javax.inject.Singleton
         DomainDaggerModuleUseCase::class
     ]
 )
-internal interface ApplicationDaggerComponent : RepositoryProvider {
+internal interface ApplicationDaggerComponent {
 
     fun inject(application: Application)
 
