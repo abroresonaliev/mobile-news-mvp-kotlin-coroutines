@@ -1,7 +1,6 @@
 package uz.icerbersoft.mobilenews.presentation.global.di
 
 import dagger.Subcomponent
-import uz.icerbersoft.mobilenews.data.repository.RepositoryProvider
 import uz.icerbersoft.mobilenews.presentation.global.GlobalActivity
 import uz.icerbersoft.mobilenews.presentation.global.router.GlobalRouter
 import uz.icerbersoft.mobilenews.presentation.presentation.detail.ArticleDetailFragment
@@ -19,7 +18,7 @@ import uz.icerbersoft.mobilenews.presentation.presentation.home.router.HomeRoute
         GlobalDaggerModuleSubComponents::class
     ]
 )
-internal interface GlobalDaggerComponent : RepositoryProvider {
+internal interface GlobalDaggerComponent {
 
     val globalRouter: GlobalRouter
     val homeRouter: HomeRouter
