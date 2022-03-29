@@ -7,14 +7,14 @@ import kotlinx.coroutines.flow.onStart
 import moxy.MvpPresenter
 import moxy.presenterScope
 import uz.icerbersoft.mobilenews.domain.data.entity.article.Article
-import uz.icerbersoft.mobilenews.domain.usecase.article.recommended.RecommendedArticleListUseCase
+import uz.icerbersoft.mobilenews.domain.usecase.article.recommended.RecommendedArticlesUseCase
 import uz.icerbersoft.mobilenews.presentation.global.router.GlobalRouter
 import uz.icerbersoft.mobilenews.presentation.presentation.home.router.HomeRouter
 import uz.icerbersoft.mobilenews.presentation.support.event.LoadingListEvent
 import javax.inject.Inject
 
 internal class RecommendedArticlesPresenter @Inject constructor(
-    private val useCase: RecommendedArticleListUseCase,
+    private val useCase: RecommendedArticlesUseCase,
     private val globalRouter: GlobalRouter,
     private val homeRouter: HomeRouter
 ) : MvpPresenter<RecommendedArticlesView>() {

@@ -9,10 +9,10 @@ import uz.icerbersoft.mobilenews.domain.data.repository.article.ArticleRepositor
 import uz.icerbersoft.mobilenews.domain.usecase.bookmark.BookmarkUseCase
 import javax.inject.Inject
 
-class ReadLaterArticleListUseCaseImpl @Inject constructor(
+class ReadLaterArticlesUseCaseImpl @Inject constructor(
     private val articleRepository: ArticleRepository,
     private val bookmarkUseCase: BookmarkUseCase
-) : ReadLaterArticleListUseCase {
+) : ReadLaterArticlesUseCase {
 
     override fun getReadLaterArticles(): Flow<ArticleListWrapper> {
         return articleRepository.getReadLaterArticles()

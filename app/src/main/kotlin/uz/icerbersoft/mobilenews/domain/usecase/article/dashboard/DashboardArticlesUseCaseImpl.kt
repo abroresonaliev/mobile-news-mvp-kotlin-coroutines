@@ -1,4 +1,4 @@
-package uz.icerbersoft.mobilenews.domain.usecase.article.recommended
+package uz.icerbersoft.mobilenews.domain.usecase.article.dashboard
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -9,13 +9,18 @@ import uz.icerbersoft.mobilenews.domain.data.repository.article.ArticleRepositor
 import uz.icerbersoft.mobilenews.domain.usecase.bookmark.BookmarkUseCase
 import javax.inject.Inject
 
-class RecommendedArticleListUseCaseImpl @Inject constructor(
+class DashboardArticlesUseCaseImpl @Inject constructor(
     private val articleRepository: ArticleRepository,
     private val bookmarkUseCase: BookmarkUseCase
-) : RecommendedArticleListUseCase {
+) : DashboardArticlesUseCase {
 
-    override fun getRecommendedArticles(): Flow<ArticleListWrapper> {
-        return articleRepository.getRecommendedArticles()
+    override fun getBreakingArticles(): Flow<ArticleListWrapper> {
+        return articleRepository.getBreakingNewsArticles()
+            .flowOn(Dispatchers.IO)
+    }
+
+    override fun getTopArticles(): Flow<ArticleListWrapper> {
+        return articleRepository.getTopArticles()
             .flowOn(Dispatchers.IO)
     }
 

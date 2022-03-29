@@ -7,14 +7,14 @@ import kotlinx.coroutines.flow.onStart
 import moxy.MvpPresenter
 import moxy.presenterScope
 import uz.icerbersoft.mobilenews.domain.data.entity.article.Article
-import uz.icerbersoft.mobilenews.domain.usecase.article.readlater.ReadLaterArticleListUseCase
+import uz.icerbersoft.mobilenews.domain.usecase.article.readlater.ReadLaterArticlesUseCase
 import uz.icerbersoft.mobilenews.presentation.global.router.GlobalRouter
 import uz.icerbersoft.mobilenews.presentation.presentation.home.router.HomeRouter
 import uz.icerbersoft.mobilenews.presentation.support.event.LoadingListEvent
 import javax.inject.Inject
 
 internal class ReadLaterArticlesPresenter @Inject constructor(
-    private val useCase: ReadLaterArticleListUseCase,
+    private val useCase: ReadLaterArticlesUseCase,
     private val globalRouter: GlobalRouter,
     private val homeRouter: HomeRouter
 ) : MvpPresenter<ReadLaterArticlesView>() {
