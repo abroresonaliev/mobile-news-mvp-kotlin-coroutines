@@ -27,10 +27,10 @@ internal interface GlobalDaggerComponent : RepositoryProvider {
     val homeDaggerComponent: HomeDaggerComponent.Factory
 
     fun inject(activity: GlobalActivity)
-    fun inject(articleDetailFragment: ArticleDetailFragment)
-    fun inject(dashboardArticlesFragment: DashboardArticlesFragment)
-    fun inject(readLaterArticlesFragment: ReadLaterArticlesFragment)
-    fun inject(recommendedArticlesFragment: RecommendedArticlesFragment)
+    fun inject(fragment: ArticleDetailFragment)
+    fun inject(fragment: DashboardArticlesFragment)
+    fun inject(fragment: ReadLaterArticlesFragment)
+    fun inject(fragment: RecommendedArticlesFragment)
 
     @Subcomponent.Factory
     interface Factory {

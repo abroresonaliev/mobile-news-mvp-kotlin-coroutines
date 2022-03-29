@@ -8,6 +8,7 @@ import uz.icerbersoft.mobilenews.presentation.application.di.data.DataDaggerModu
 import uz.icerbersoft.mobilenews.presentation.application.di.data.DataDaggerModuleRepository
 import uz.icerbersoft.mobilenews.presentation.global.di.GlobalDaggerComponent
 import uz.icerbersoft.mobilenews.data.repository.RepositoryProvider
+import uz.icerbersoft.mobilenews.presentation.application.di.domain.DomainDaggerModuleUseCase
 import javax.inject.Singleton
 
 @Singleton
@@ -17,7 +18,8 @@ import javax.inject.Singleton
         ApplicationDaggerModule::class,
         ApplicationDaggerModuleSubComponents::class,
         DataDaggerModuleDataSource::class,
-        DataDaggerModuleRepository::class
+        DataDaggerModuleRepository::class,
+        DomainDaggerModuleUseCase::class
     ]
 )
 internal interface ApplicationDaggerComponent : RepositoryProvider {
