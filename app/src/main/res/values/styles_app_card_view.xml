@@ -3,9 +3,9 @@
     <style name="Theme.MobileNews.CardView" parent="android:style/Widget" />
 
     <style name="Theme.MobileNews.CardView.Default">
-        <item name="cardCornerRadius">@dimen/_8sdp</item>
-        <item name="cardElevation">@dimen/_1sdp</item>
-        <item name="cardBackgroundColor">@color/color_white</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
     </style>
 
 </resources>

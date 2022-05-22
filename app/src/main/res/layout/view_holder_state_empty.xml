@@ -19,6 +19,7 @@
         android:paddingHorizontal="@dimen/_14sdp"
         android:paddingVertical="@dimen/_12sdp"
         android:text="@string/state_no_items"
+        android:textColor="@color/app_text_color_primary"
         android:textSize="14sp" />
 
 </LinearLayout>
