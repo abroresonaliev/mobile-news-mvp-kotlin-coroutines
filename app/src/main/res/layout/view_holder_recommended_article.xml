@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/_12sdp"
-    android:layout_marginVertical="@dimen/_4sdp"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="4dp">
+    android:layout_marginVertical="@dimen/_4sdp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/item_parent"
@@ -33,7 +31,7 @@
             android:layout_marginEnd="4dp"
             android:ellipsize="end"
             android:maxLines="3"
-            android:textColor="@color/color_black"
+            android:textColor="@color/app_text_color_primary"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +47,7 @@
             android:layout_marginEnd="4dp"
             android:ellipsize="end"
             android:maxLines="5"
+            android:textColor="@color/app_text_color_primary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/source_text_view"
@@ -62,7 +61,7 @@
             android:layout_marginEnd="4dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textColor="@color/color_secondary_text_color"
+            android:textColor="@color/app_text_color_secondary"
             app:layout_constraintEnd_toStartOf="@id/bookmark_image_view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_text_view"
