@@ -48,6 +48,11 @@ internal class GlobalActivity : MvpAppCompatActivity(), GlobalView {
         setContentView(binding.root)
     }
 
+    fun updateNightMode (dayNightMode: Int){
+        dayNightModeManager.setDayNightMode(dayNightMode)
+        AppCompatDelegate.setDefaultNightMode(dayNightModeManager.getDayNightMode())
+    }
+
     override fun onResumeFragments() {
         super.onResumeFragments()
         navigatorHolder.setNavigator(navigator)

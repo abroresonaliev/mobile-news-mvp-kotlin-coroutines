@@ -54,4 +54,7 @@ internal class DashboardArticlesPresenter @Inject constructor(
 
     fun openArticleDetailScreen(article: Article) =
         router.openArticleDetailScreen(article.articleId)
+
+    fun openSettingsScreen() =
+        router.openSettingsScreen()
 }

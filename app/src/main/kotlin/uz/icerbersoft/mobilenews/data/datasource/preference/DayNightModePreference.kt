@@ -1,27 +1,27 @@
 package uz.icerbersoft.mobilenews.data.datasource.preference
 
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatDelegate.*
+import uz.icerbersoft.mobilenews.domain.data.entity.settings.DayNightMode
 
 internal class DayNightModePreference(
     private val sharedPreferences: SharedPreferences
 ) {
-    var dayNightMode: Int = MODE_NIGHT_FOLLOW_SYSTEM
-        get() = sharedPreferences.getInt(KEY_DAY_NIGHT_MODE, MODE_NIGHT_FOLLOW_SYSTEM)
+    var dayNightMode: DayNightMode = DayNightMode.DEFAULT
+        get() = sharedPreferences.getInt(KEY_DAY_NIGHT_MODE, DayNightMode.DEFAULT.modeIndex)
             .let {
                 when (it) {
-                    1 -> MODE_NIGHT_NO
-                    2 -> MODE_NIGHT_YES
-                    else -> MODE_NIGHT_NO
+                    1 -> DayNightMode.ONLY_LIGHT_MODE
+                    2 -> DayNightMode.ONLY_NIGHT_MODE
+                    else -> DayNightMode.FOLLOW_SYSTEM_NIGHT_MODE
                 }
             }
         set(value) {
-            field = when (value) {
-                1 -> MODE_NIGHT_NO
-                2 -> MODE_NIGHT_YES
-                else -> MODE_NIGHT_FOLLOW_SYSTEM
+            field = when (value.modeIndex) {
+                1 -> DayNightMode.ONLY_LIGHT_MODE
+                2 -> DayNightMode.ONLY_NIGHT_MODE
+                else -> DayNightMode.FOLLOW_SYSTEM_NIGHT_MODE
             }
-            sharedPreferences.edit().putInt(KEY_DAY_NIGHT_MODE, field).apply()
+            sharedPreferences.edit().putInt(KEY_DAY_NIGHT_MODE, field.modeIndex).apply()
         }
 
     fun clear() =
