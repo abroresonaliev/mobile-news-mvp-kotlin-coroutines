@@ -27,7 +27,7 @@ class DayNightModeItemController(
         private val binding = ViewHolderDayNightModeSelectionBinding.bind(itemView)
 
         init {
-            binding.itemParent.setOnClickListener {
+            binding.root.setOnClickListener {
                 onDayNightModeClick.invoke(dayNightModeWrapper)
             }
         }

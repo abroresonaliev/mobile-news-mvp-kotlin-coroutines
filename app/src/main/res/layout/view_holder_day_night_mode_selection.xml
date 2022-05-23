@@ -2,14 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/itemParent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/_8sdp"
-    android:layout_marginVertical="@dimen/_4sdp"
-    android:background="?selectableItemBackground"
-    android:clickable="true"
-    android:focusable="true">
+    android:layout_marginVertical="@dimen/_2sdp"
+    android:elevation="4dp">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/day_night_mode_name_tv"
@@ -17,7 +14,7 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:gravity="start|center"
-        android:maxLines="5"
+        android:maxLines="1"
         android:minHeight="56dp"
         android:paddingHorizontal="16dp"
         android:textSize="16sp"

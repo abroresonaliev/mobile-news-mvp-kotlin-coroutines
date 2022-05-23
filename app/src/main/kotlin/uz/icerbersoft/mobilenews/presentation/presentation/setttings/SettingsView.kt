@@ -6,5 +6,5 @@ import uz.icerbersoft.mobilenews.presentation.support.event.LoadingListEvent
 
 interface SettingsView : MvpView {
 
-    fun onDefinedDayNightModeWrappers(wrappers: LoadingListEvent<DayNightModeWrapper>)
+    fun onDefinedDayNightModeWrappers(event: LoadingListEvent<DayNightModeWrapper>)
 }
