@@ -1,6 +1,5 @@
 package uz.icerbersoft.mobilenews.presentation.application.di.data
 
-import android.content.Context
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -11,8 +10,6 @@ import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.create
 import uz.icerbersoft.mobilenews.BuildConfig
-import uz.icerbersoft.mobilenews.data.datasource.database.dao.article.ArticleEntityDao
-import uz.icerbersoft.mobilenews.data.datasource.database.persistent.AppDatabase
 import uz.icerbersoft.mobilenews.data.datasource.rest.interceptor.logging.HttpLoggingInterceptor
 import uz.icerbersoft.mobilenews.data.datasource.rest.retrofit.adapter.FlowCallAdapterFactory
 import uz.icerbersoft.mobilenews.data.datasource.rest.retrofit.converter.UnitConverterFactory
@@ -22,23 +19,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-internal object DataDaggerModuleDataSource {
-
-    @JvmStatic
-    @Provides
-    @Singleton
-    fun appDatabase(
-        context: Context
-    ): AppDatabase =
-        AppDatabase.create(context)
-
-    @JvmStatic
-    @Provides
-    @Singleton
-    fun articleEntityDao(
-        appDatabase: AppDatabase
-    ): ArticleEntityDao =
-        appDatabase.articleEntityDao
+internal object DataDaggerModuleRest {
 
     @JvmStatic
     @Provides
@@ -84,7 +65,7 @@ internal object DataDaggerModuleDataSource {
     @Singleton
     fun JsonConverterFactory(
     ): Converter.Factory {
-         val lazyJson: Json by lazy {
+        val lazyJson: Json by lazy {
             Json {
                 isLenient = true
                 ignoreUnknownKeys = true
@@ -94,6 +75,6 @@ internal object DataDaggerModuleDataSource {
             }
         }
 
-        return  lazyJson.asConverterFactory("application/json; charset=utf-8".toMediaType())
+        return lazyJson.asConverterFactory("application/json; charset=utf-8".toMediaType())
     }
 }

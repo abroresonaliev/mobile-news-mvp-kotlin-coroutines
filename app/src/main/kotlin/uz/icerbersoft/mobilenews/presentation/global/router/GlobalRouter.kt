@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 import uz.icerbersoft.mobilenews.presentation.presentation.detail.ArticleDetailFragment
 import uz.icerbersoft.mobilenews.presentation.presentation.home.HomeFragment
+import uz.icerbersoft.mobilenews.presentation.presentation.setttings.SettingsFragment
 import uz.icerbersoft.mobilenews.presentation.support.cicerone.base.CiceroneRouter
 
 class GlobalRouter : CiceroneRouter() {
@@ -16,6 +17,10 @@ class GlobalRouter : CiceroneRouter() {
         navigateTo(Screens.ArticleDetail(articleId))
     }
 
+    fun openSettingsScreen() {
+        navigateTo(Screens.Settings)
+    }
+
     private object Screens {
 
         object Home : SupportAppScreen() {
@@ -26,6 +31,11 @@ class GlobalRouter : CiceroneRouter() {
         class ArticleDetail(val articleId: String) : SupportAppScreen() {
             override fun getFragment(): Fragment =
                 ArticleDetailFragment.newInstance(articleId)
+        }
+
+        object Settings : SupportAppScreen() {
+            override fun getFragment(): Fragment =
+                SettingsFragment.newInstance()
         }
     }
 }

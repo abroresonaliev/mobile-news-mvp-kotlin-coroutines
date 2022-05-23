@@ -71,6 +71,9 @@ internal class DashboardArticlesFragment :
             breakingArticleRv.itemAnimator = null
             topArticleRv.adapter = topArticlesAdapter
             topArticleRv.itemAnimator = null
+            settingsIv.setOnClickListener {
+                presenter.openSettingsScreen()
+            }
         }
     }
 

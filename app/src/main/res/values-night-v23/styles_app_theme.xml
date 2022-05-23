@@ -10,11 +10,4 @@
         <item name="android:windowLightStatusBar">false</item>
     </style>
 
-    <style name="Theme.MobileNews.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@color/background_color</item>
-    </style>
-
 </resources>
