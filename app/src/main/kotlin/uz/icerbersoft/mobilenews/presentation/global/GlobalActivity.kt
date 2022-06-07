@@ -13,6 +13,7 @@ import uz.icerbersoft.mobilenews.databinding.ActivityGlobalBinding
 import uz.icerbersoft.mobilenews.presentation.application.Application
 import uz.icerbersoft.mobilenews.presentation.application.manager.daynight.DayNightModeManager
 import uz.icerbersoft.mobilenews.presentation.global.di.GlobalDaggerComponent
+import uz.icerbersoft.mobilenews.presentation.global.router.GlobalAppNavigator
 import uz.icerbersoft.mobilenews.presentation.global.router.GlobalRouter
 import javax.inject.Inject
 
@@ -25,7 +26,7 @@ internal class GlobalActivity : MvpAppCompatActivity(), GlobalView {
     @Inject
     lateinit var cicerone: Cicerone<GlobalRouter>
     private val navigatorHolder: NavigatorHolder by lazy { cicerone.navigatorHolder }
-    private val navigator by lazy { SupportAppNavigator(this, binding.frameLayout.id) }
+    private val navigator by lazy { GlobalAppNavigator(this, binding.frameLayout.id) }
 
     @Inject
     lateinit var dayNightModeManager: DayNightModeManager
