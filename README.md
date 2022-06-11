@@ -3,10 +3,6 @@
 
 it's a sample project, in project used: kotlin coroutines, dagger2, EasyAdapter(surf studio), cicerone, mvp (moxy-mvp)
 
-articles taken from https://newsapi.org/
-
-design template https://www.behance.net/gallery/79280905/iOS-13-phoneOS/modules/468204389
-
 In project used: Kotlin Coroutines, Dagger2, EasyAdapter([surf-studio](https://github.com/surfstudio/EasyAdapter)), Cicerone([terratok](https://github.com/terrakok/Cicerone)), moxy-mvp([arello-mobile](https://github.com/Arello-Mobile/Moxy))
 
 articles taken from [News Api](https://newsapi.org/)
