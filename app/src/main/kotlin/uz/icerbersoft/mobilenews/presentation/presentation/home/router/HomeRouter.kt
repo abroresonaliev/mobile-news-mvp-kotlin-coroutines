@@ -6,7 +6,7 @@ import ru.terrakok.cicerone.android.support.SupportAppScreen
 import uz.icerbersoft.mobilenews.presentation.presentation.home.features.dashboard.DashboardArticlesFragment
 import uz.icerbersoft.mobilenews.presentation.presentation.home.features.readlater.ReadLaterArticlesFragment
 import uz.icerbersoft.mobilenews.presentation.presentation.home.features.recommended.RecommendedArticlesFragment
-import uz.icerbersoft.mobilenews.presentation.support.cicerone.base.BaseFeatureRouter
+import uz.icerbersoft.mobilenews.presentation.support.cicerone.router.BaseFeatureRouter
 
 class HomeRouter : BaseFeatureRouter() {
 

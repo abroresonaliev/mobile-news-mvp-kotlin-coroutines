@@ -39,7 +39,5 @@ internal interface ArticleRestService {
         const val FIELD_QUERY: String = "q"
         const val FIELD_SORT: String = "sortBy"
         const val FIELD_SOURCE: String = "sources"
-
-        //    business entertainment general health science sports technology
     }
 }

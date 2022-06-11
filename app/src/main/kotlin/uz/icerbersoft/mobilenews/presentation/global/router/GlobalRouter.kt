@@ -5,7 +5,7 @@ import ru.terrakok.cicerone.android.support.SupportAppScreen
 import uz.icerbersoft.mobilenews.presentation.presentation.detail.ArticleDetailFragment
 import uz.icerbersoft.mobilenews.presentation.presentation.home.HomeFragment
 import uz.icerbersoft.mobilenews.presentation.presentation.setttings.SettingsFragment
-import uz.icerbersoft.mobilenews.presentation.support.cicerone.base.BaseCiceroneRouter
+import uz.icerbersoft.mobilenews.presentation.support.cicerone.router.BaseCiceroneRouter
 
 class GlobalRouter : BaseCiceroneRouter() {
 

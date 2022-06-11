@@ -1,4 +1,4 @@
-package uz.icerbersoft.mobilenews.presentation.support.cicerone.base
+package uz.icerbersoft.mobilenews.presentation.support.cicerone.router
 
 import ru.terrakok.cicerone.Router
 
