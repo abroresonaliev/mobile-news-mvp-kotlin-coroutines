@@ -2,18 +2,16 @@ package uz.icerbersoft.mobilenews.presentation.global
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import dagger.Lazy
 import moxy.MvpAppCompatActivity
 import moxy.ktx.moxyPresenter
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.NavigatorHolder
-import ru.terrakok.cicerone.android.support.SupportAppNavigator
 import uz.icerbersoft.mobilenews.databinding.ActivityGlobalBinding
 import uz.icerbersoft.mobilenews.presentation.application.Application
 import uz.icerbersoft.mobilenews.presentation.application.manager.daynight.DayNightModeManager
 import uz.icerbersoft.mobilenews.presentation.global.di.GlobalDaggerComponent
-import uz.icerbersoft.mobilenews.presentation.global.router.GlobalAppNavigator
+import uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator.AnimatedCiceroneNavigator
 import uz.icerbersoft.mobilenews.presentation.global.router.GlobalRouter
 import javax.inject.Inject
 
@@ -26,7 +24,7 @@ internal class GlobalActivity : MvpAppCompatActivity(), GlobalView {
     @Inject
     lateinit var cicerone: Cicerone<GlobalRouter>
     private val navigatorHolder: NavigatorHolder by lazy { cicerone.navigatorHolder }
-    private val navigator by lazy { GlobalAppNavigator(this, binding.frameLayout.id) }
+    private val navigator by lazy { AnimatedCiceroneNavigator(this, binding.frameLayout.id) }
 
     @Inject
     lateinit var dayNightModeManager: DayNightModeManager

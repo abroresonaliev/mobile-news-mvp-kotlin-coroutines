@@ -1,9 +1,9 @@
-package uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator.mutlibackstack
+package uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
-import uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator.base.BaseCiceroneNavigator
+import uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator.BaseCiceroneNavigator
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 import ru.terrakok.cicerone.commands.BackTo
 import ru.terrakok.cicerone.commands.Forward

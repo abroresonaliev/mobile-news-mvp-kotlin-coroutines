@@ -1,13 +1,13 @@
-package uz.icerbersoft.mobilenews.presentation.global.router
+package uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 import ru.terrakok.cicerone.commands.Command
 import uz.icerbersoft.mobilenews.R
-import uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator.base.BaseCiceroneNavigator
+import uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator.BaseCiceroneNavigator
 
-class GlobalAppNavigator(
+class AnimatedCiceroneNavigator(
     activity: FragmentActivity,
     containerId: Int
 ) : BaseCiceroneNavigator(activity, containerId) {

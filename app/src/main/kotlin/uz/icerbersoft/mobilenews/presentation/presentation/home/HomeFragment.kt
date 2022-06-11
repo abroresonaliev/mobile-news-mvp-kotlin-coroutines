@@ -10,7 +10,7 @@ import uz.icerbersoft.mobilenews.R
 import uz.icerbersoft.mobilenews.databinding.FragmentHomeBinding
 import uz.icerbersoft.mobilenews.presentation.global.GlobalActivity
 import uz.icerbersoft.mobilenews.presentation.presentation.home.router.HomeRouter
-import uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator.mutlibackstack.MultiBackstackNavigator
+import uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator.MultiBackstackNavigator
 import javax.inject.Inject
 
 internal class HomeFragment : MvpAppCompatFragment(R.layout.fragment_home), HomeView {

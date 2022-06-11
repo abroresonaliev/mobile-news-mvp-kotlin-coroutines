@@ -1,4 +1,4 @@
-package uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator.base
+package uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator
 
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
