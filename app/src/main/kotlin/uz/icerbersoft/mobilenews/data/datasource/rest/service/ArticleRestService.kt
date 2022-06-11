@@ -6,22 +6,22 @@ import retrofit2.http.Query
 import uz.icerbersoft.mobilenews.domain.data.entity.article.ArticleListResponse
 
 internal interface ArticleRestService {
-    
+
     @GET("${API_TOP_HEADINGS}${API_API_KEY}")
     fun getBreakingArticles(
-        @Query(FIELD_COUNTRY) country: String = "us"
+        @Query(FIELD_SORT) sortBy: String = "popularity"
     ): Flow<ArticleListResponse>
 
     @GET("${API_TOP_HEADINGS}${API_API_KEY}")
     fun getTopArticles(
-        @Query(FIELD_COUNTRY) country: String = "ru",
+        @Query(FIELD_COUNTRY) country: String = "us",
+        @Query(FIELD_CATEGORY) category: String = "business",
         @Query(FIELD_SORT) sortBy: String = "popularity"
     ): Flow<ArticleListResponse>
 
     @GET("${API_TOP_HEADINGS}${API_API_KEY}")
     fun getRecommendedArticles(
-        @Query(FIELD_CATEGORY) category: String = "sport",
-        @Query(FIELD_COUNTRY) country: String = "us",
+        @Query(FIELD_CATEGORY) category: String = "science",
         @Query(FIELD_SORT) sortBy: String = "popularity"
     ): Flow<ArticleListResponse>
 
@@ -39,5 +39,7 @@ internal interface ArticleRestService {
         const val FIELD_QUERY: String = "q"
         const val FIELD_SORT: String = "sortBy"
         const val FIELD_SOURCE: String = "sources"
+
+        //    business entertainment general health science sports technology
     }
 }
