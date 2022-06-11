@@ -6,9 +6,9 @@ import ru.terrakok.cicerone.android.support.SupportAppScreen
 import uz.icerbersoft.mobilenews.presentation.presentation.home.features.dashboard.DashboardArticlesFragment
 import uz.icerbersoft.mobilenews.presentation.presentation.home.features.readlater.ReadLaterArticlesFragment
 import uz.icerbersoft.mobilenews.presentation.presentation.home.features.recommended.RecommendedArticlesFragment
-import uz.icerbersoft.mobilenews.presentation.support.cicerone.base.FeatureRouter
+import uz.icerbersoft.mobilenews.presentation.support.cicerone.base.BaseFeatureRouter
 
-class HomeRouter : FeatureRouter() {
+class HomeRouter : BaseFeatureRouter() {
 
     private var bottomNavigationRouter: Router? = null
     private var navigationListener: ((tab: HomeTab) -> Unit)? = null
@@ -22,19 +22,19 @@ class HomeRouter : FeatureRouter() {
     }
 
     fun openDashboardTab(isNotifyRequired: Boolean = false) {
-        bottomNavigationRouter?.replaceScreen(Tabs.DashboardTab)
+        bottomNavigationRouter?.navigateTo(Tabs.DashboardTab)
         if (isNotifyRequired)
             navigationListener?.invoke(HomeTab.DashboardTab)
     }
 
     fun openRecommendedTab(isNotifyRequired: Boolean = false) {
-        bottomNavigationRouter?.replaceScreen(Tabs.RecommendedTab)
+        bottomNavigationRouter?.navigateTo(Tabs.RecommendedTab)
         if (isNotifyRequired)
             navigationListener?.invoke(HomeTab.RecommendedTab)
     }
 
     fun openReadLaterTab(isNotifyRequired: Boolean = false) {
-        bottomNavigationRouter?.replaceScreen(Tabs.ReadLaterTab)
+        bottomNavigationRouter?.navigateTo(Tabs.ReadLaterTab)
         if (isNotifyRequired)
             navigationListener?.invoke(HomeTab.ReadLaterTab)
     }

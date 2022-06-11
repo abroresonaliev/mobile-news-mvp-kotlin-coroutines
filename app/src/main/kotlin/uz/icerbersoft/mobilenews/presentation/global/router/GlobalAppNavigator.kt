@@ -6,11 +6,13 @@ import androidx.fragment.app.FragmentTransaction
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
 import ru.terrakok.cicerone.commands.Command
 import uz.icerbersoft.mobilenews.R
+import uz.icerbersoft.mobilenews.presentation.support.cicerone.base.BaseCiceroneRouter
+import uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator.base.BaseCiceroneNavigator
 
 class GlobalAppNavigator(
     activity: FragmentActivity,
     containerId: Int
-) : SupportAppNavigator(activity, containerId) {
+) : BaseCiceroneNavigator(activity, containerId) {
 
     override fun setupFragmentTransaction(
         command: Command,
