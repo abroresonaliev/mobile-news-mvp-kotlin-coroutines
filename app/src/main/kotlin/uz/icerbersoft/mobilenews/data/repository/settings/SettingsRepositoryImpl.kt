@@ -1,9 +1,10 @@
-package uz.icerbersoft.mobilenews.domain.data.repository.settings
+package uz.icerbersoft.mobilenews.data.repository.settings
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import uz.icerbersoft.mobilenews.data.datasource.preference.DayNightModePreference
 import uz.icerbersoft.mobilenews.domain.data.entity.settings.DayNightMode
+import uz.icerbersoft.mobilenews.domain.data.repository.settings.SettingsRepository
 import javax.inject.Inject
 
 internal class SettingsRepositoryImpl @Inject constructor(
