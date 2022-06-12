@@ -1,4 +1,4 @@
-package uz.icerbersoft.mobilenews.presentation
+package uz.icerbersoft.mobilenews
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
