@@ -12,7 +12,6 @@ class MultiBackstackNavigator(
     activity: FragmentActivity,
     fragmentManager: FragmentManager,
     containerId: Int
-
 ) : BaseCiceroneNavigator(activity, fragmentManager, containerId) {
 
     constructor(activity: FragmentActivity, containerId: Int) : this(
