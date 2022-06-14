@@ -7,7 +7,7 @@ articles taken from [News Api](https://newsapi.org/)
 design template [Behance](https://www.behance.net/gallery/79280905/iOS-13-phoneOS/modules/468204389)([Maximos Angelakis](https://www.behance.net/angelakismax))
 
 
-Screenshots
+# Screenshots
 
 | <img src="https://user-images.githubusercontent.com/11418702/169682589-317a4361-d491-419c-bc8b-d5ac5db516d9.png" width="140"> 
 | <img src="https://user-images.githubusercontent.com/11418702/169682591-3e9093cc-2151-4ffc-901f-30b691293f98.png" width="140"> 
