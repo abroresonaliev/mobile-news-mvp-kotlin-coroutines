@@ -1,6 +1,5 @@
 package uz.icerbersoft.mobilenews.data.repository.article
 
-import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.*
 import uz.icerbersoft.mobilenews.data.datasource.database.dao.article.ArticleEntityDao
 import uz.icerbersoft.mobilenews.data.datasource.rest.service.ArticleRestService
@@ -8,6 +7,7 @@ import uz.icerbersoft.mobilenews.data.mapper.entityToArticle
 import uz.icerbersoft.mobilenews.data.mapper.responseToEntity
 import uz.icerbersoft.mobilenews.domain.data.entity.article.Article
 import uz.icerbersoft.mobilenews.domain.data.entity.article.ArticleListWrapper
+import uz.icerbersoft.mobilenews.domain.data.entity.pagination.PaginationData
 import uz.icerbersoft.mobilenews.domain.data.repository.article.ArticleRepository
 import java.net.ConnectException
 import java.net.UnknownHostException
@@ -22,7 +22,6 @@ internal class ArticleRepositoryImpl @Inject constructor(
         return articleEntityDao.getArticleEntityById(articleId).map { it.entityToArticle() }
     }
 
-    @FlowPreview
     override fun getArticles(): Flow<ArticleListWrapper> {
         return articleRestService.getBreakingArticles()
             .onEach { it ->
@@ -46,7 +45,6 @@ internal class ArticleRepositoryImpl @Inject constructor(
             }
     }
 
-    @FlowPreview
     override fun getBreakingNewsArticles(): Flow<ArticleListWrapper> {
         return articleRestService.getBreakingArticles()
             .onEach { it ->
@@ -70,7 +68,6 @@ internal class ArticleRepositoryImpl @Inject constructor(
             }
     }
 
-    @FlowPreview
     override fun getTopArticles(): Flow<ArticleListWrapper> {
         return articleRestService.getTopArticles()
             .onEach { it ->
@@ -94,9 +91,8 @@ internal class ArticleRepositoryImpl @Inject constructor(
             }
     }
 
-    @FlowPreview
-    override fun getRecommendedArticles(): Flow<ArticleListWrapper> {
-        return articleRestService.getRecommendedArticles()
+    override fun getRecommendedArticles(page: Int): Flow<PaginationData<Article>> {
+        return articleRestService.getRecommendedArticles(page)
             .onEach { it ->
                 it.articles.forEach {
                     articleEntityDao.updateArticle(it.responseToEntity())
@@ -114,11 +110,10 @@ internal class ArticleRepositoryImpl @Inject constructor(
                     else -> articleEntityDao.getArticleEntities()
                 }
                     .map { list -> list.map { it.entityToArticle() } }
-                    .map { ArticleListWrapper(it, postUrls.isEmpty()) }
+                    .map { PaginationData(1, it.size, it) }
             }
     }
 
-    @FlowPreview
     override fun getReadLaterArticles(): Flow<ArticleListWrapper> {
         return articleEntityDao.getArticleEntitiesByBookmark(true)
             .map { list -> list.map { it.entityToArticle() } }

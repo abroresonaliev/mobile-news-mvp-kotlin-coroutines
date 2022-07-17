@@ -106,6 +106,7 @@ dependencies {
     implementation "ru.surfstudio.android:recycler-decorator:1.0.1"
     implementation "ru.surfstudio.android:recycler-decorator-easyadapter:1.0.1"
     implementation "ru.surfstudio.android:datalist-limit-offset:0.5.0"
+    implementation "ru.surfstudio.android:datalist-page-count:0.5.0"
     implementation "ru.surfstudio.android:datalist-base:0.5.0"
 
     implementation "ru.terrakok.cicerone:cicerone:5.1.0"

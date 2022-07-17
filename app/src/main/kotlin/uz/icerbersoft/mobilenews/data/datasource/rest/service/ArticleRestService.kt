@@ -21,7 +21,8 @@ internal interface ArticleRestService {
 
     @GET("${API_TOP_HEADINGS}${API_API_KEY}")
     fun getRecommendedArticles(
-        @Query(FIELD_CATEGORY) category: String = "science",
+        @Query(FIELD_PAGE) page: Int,
+//        @Query(FIELD_CATEGORY) category: String = "science",
         @Query(FIELD_SORT) sortBy: String = "popularity"
     ): Flow<ArticleListResponse>
 
@@ -38,6 +39,7 @@ internal interface ArticleRestService {
         const val FIELD_DOMAIN: String = "domains"
         const val FIELD_QUERY: String = "q"
         const val FIELD_SORT: String = "sortBy"
+        const val FIELD_PAGE: String = "page"
         const val FIELD_SOURCE: String = "sources"
     }
 }

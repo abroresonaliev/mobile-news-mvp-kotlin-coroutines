@@ -5,13 +5,15 @@ import android.view.View
 import dagger.Lazy
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
-import ru.surfstudio.android.easyadapter.EasyAdapter
 import ru.surfstudio.android.easyadapter.ItemList
+import ru.surfstudio.android.easyadapter.pagination.EasyPaginationAdapter
+import ru.surfstudio.android.easyadapter.pagination.PaginationState
 import uz.icerbersoft.mobilenews.R
 import uz.icerbersoft.mobilenews.databinding.FragmentRecommendedArticlesBinding
 import uz.icerbersoft.mobilenews.domain.data.entity.article.Article
 import uz.icerbersoft.mobilenews.presentation.global.GlobalActivity
 import uz.icerbersoft.mobilenews.presentation.presentation.home.features.recommended.controller.RecommendedArticleItemController
+import uz.icerbersoft.mobilenews.presentation.support.controller.PaginationFooterItemController
 import uz.icerbersoft.mobilenews.presentation.support.controller.StateEmptyItemController
 import uz.icerbersoft.mobilenews.presentation.support.controller.StateErrorItemController
 import uz.icerbersoft.mobilenews.presentation.support.controller.StateLoadingItemController
@@ -39,7 +41,12 @@ internal class RecommendedArticlesFragment :
         onBackPressedDispatcher.addCallback(this) { presenter.back() }
     }
 
-    private val easyAdapter = EasyAdapter()
+    private val paginationFooterController = PaginationFooterItemController {
+        presenter.getRecommendedArticles()
+    }
+    private val easyPaginationAdapter = EasyPaginationAdapter(paginationFooterController) {
+        presenter.loadNextPage()
+    }
     private val articleController = RecommendedArticleItemController(
         itemClickListener = { presenter.openArticleDetail(it) },
         bookmarkListener = { presenter.updateBookmark(it) }
@@ -53,12 +60,12 @@ internal class RecommendedArticlesFragment :
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentRecommendedArticlesBinding.bind(view)
         with(binding) {
-            recyclerView.adapter = easyAdapter
+            recyclerView.adapter = easyPaginationAdapter
             recyclerView.itemAnimator = null
         }
     }
 
-    override fun onSuccessArticles(event: LoadingListEvent<Article>) {
+    override fun onDefinedArticles(event: LoadingListEvent<Article>, state: PaginationState) {
         val itemList = ItemList.create()
         when (event) {
             is LoadingState -> itemList.add(stateLoadingController)
@@ -66,7 +73,7 @@ internal class RecommendedArticlesFragment :
             is EmptyState -> itemList.add(stateEmptyController)
             is ErrorState -> itemList.add(stateErrorController)
         }
-        easyAdapter.setItems(itemList)
+        easyPaginationAdapter.setItems(itemList, state)
     }
 
     companion object {
