@@ -1,14 +1,25 @@
-it's a sample project, in project used: kotlin coroutines, dagger2, cicerone, mvp (moxy-mvp)
+# Mobile news is sample project
 
-articles taken from https://newsapi.org/
+In project used: [Kotlin Coroutines](https://github.com/Kotlin/kotlinx.coroutines), Room, [Dagger2](https://github.com/google/dagger), EasyAdapter([surf-studio](https://github.com/surfstudio/EasyAdapter)), Cicerone([terratok](https://github.com/terrakok/Cicerone)), moxy-mvp([arello-mobile](https://github.com/Arello-Mobile/Moxy))
 
-design template https://www.behance.net/gallery/79280905/iOS-13-phoneOS/modules/468204389
+articles taken from [News Api](https://newsapi.org/)
+
+design template [Behance](https://www.behance.net/gallery/79280905/iOS-13-phoneOS/modules/468204389)([Maximos Angelakis](https://www.behance.net/angelakismax))
 
 
-![telegram-cloud-photo-size-2-5332352518648347481-y](https://user-images.githubusercontent.com/11418702/160285834-c0821994-9c77-452b-9a84-9346883f4009.jpg)
+# Screenshots
 
-![photo_2022-03-27 06 50 16](https://user-images.githubusercontent.com/11418702/160263193-a9f3b3cd-5977-49d0-b9ef-bc3d318e2250.jpeg)
+| <img src="https://user-images.githubusercontent.com/11418702/169682589-317a4361-d491-419c-bc8b-d5ac5db516d9.png" width="140"> 
+| <img src="https://user-images.githubusercontent.com/11418702/169682591-3e9093cc-2151-4ffc-901f-30b691293f98.png" width="140"> 
+| <img src="https://user-images.githubusercontent.com/11418702/169682593-15a7f1a0-36af-4011-b51d-b186d179ec28.png" width="140"> 
+| <img src="https://user-images.githubusercontent.com/11418702/169682581-37352950-2ee4-47d4-841a-29ebbe0028da.png" width="140"> 
+| <img src="https://user-images.githubusercontent.com/11418702/173206715-483fb11d-518d-440e-8812-079e071a66ef.png" width="140"> 
+|
 
-![photo_2022-03-27 06 50 17](https://user-images.githubusercontent.com/11418702/160263191-02528296-99e7-4c0d-bed6-9ee2eeb95dc7.jpeg)
 
-![telegram-cloud-photo-size-2-5332352518648347482-y](https://user-images.githubusercontent.com/11418702/160285843-696f5b6a-2529-4e8f-bdf9-b0267f653d72.jpg)
+| <img src="https://user-images.githubusercontent.com/11418702/169682596-c245907c-452d-496c-b2a4-6d01f71ef2c3.png" width="140"> 
+| <img src="https://user-images.githubusercontent.com/11418702/169682598-350e2ba3-e882-4540-8d89-73754f3bea5f.png" width="140"> 
+| <img src="https://user-images.githubusercontent.com/11418702/169682594-120e2318-ba1c-4c21-a5a2-0adc6359774e.png" width="140"> 
+| <img src="https://user-images.githubusercontent.com/11418702/169682595-14b99744-852d-4be9-bf91-0e6c5094d0c5.png" width="140"> 
+| <img src="https://user-images.githubusercontent.com/11418702/173206735-ce2124fe-41ce-4b1b-976d-0609d268eec9.png" width="140"> 
+|

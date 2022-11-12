@@ -9,6 +9,7 @@ import uz.icerbersoft.mobilenews.presentation.presentation.home.features.dashboa
 import uz.icerbersoft.mobilenews.presentation.presentation.home.features.readlater.ReadLaterArticlesFragment
 import uz.icerbersoft.mobilenews.presentation.presentation.home.features.recommended.RecommendedArticlesFragment
 import uz.icerbersoft.mobilenews.presentation.presentation.home.router.HomeRouter
+import uz.icerbersoft.mobilenews.presentation.presentation.setttings.SettingsFragment
 
 @GlobalScope
 @Subcomponent(
@@ -30,6 +31,7 @@ internal interface GlobalDaggerComponent {
     fun inject(fragment: DashboardArticlesFragment)
     fun inject(fragment: ReadLaterArticlesFragment)
     fun inject(fragment: RecommendedArticlesFragment)
+    fun inject(fragment: SettingsFragment)
 
     @Subcomponent.Factory
     interface Factory {

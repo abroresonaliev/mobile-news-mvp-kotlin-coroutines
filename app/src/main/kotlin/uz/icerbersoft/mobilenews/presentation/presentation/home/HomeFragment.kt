@@ -6,11 +6,11 @@ import dagger.Lazy
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 import ru.terrakok.cicerone.NavigatorHolder
-import ru.terrakok.cicerone.android.support.SupportAppNavigator
 import uz.icerbersoft.mobilenews.R
 import uz.icerbersoft.mobilenews.databinding.FragmentHomeBinding
 import uz.icerbersoft.mobilenews.presentation.global.GlobalActivity
 import uz.icerbersoft.mobilenews.presentation.presentation.home.router.HomeRouter
+import uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator.MultiBackstackNavigator
 import javax.inject.Inject
 
 internal class HomeFragment : MvpAppCompatFragment(R.layout.fragment_home), HomeView {
@@ -21,7 +21,7 @@ internal class HomeFragment : MvpAppCompatFragment(R.layout.fragment_home), Home
 
     @Inject
     lateinit var navigatorHolder: NavigatorHolder
-    private var supportAppNavigator: SupportAppNavigator? = null
+    private var multiBackstackNavigator: MultiBackstackNavigator? = null
 
     private lateinit var binding: FragmentHomeBinding
 
@@ -39,8 +39,8 @@ internal class HomeFragment : MvpAppCompatFragment(R.layout.fragment_home), Home
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
 
-        supportAppNavigator =
-            SupportAppNavigator(requireActivity(), childFragmentManager, binding.frameLayout.id)
+        multiBackstackNavigator =
+            MultiBackstackNavigator(requireActivity(), childFragmentManager, binding.frameLayout.id)
 
         binding.apply {
             bottomNavigationView.setOnItemSelectedListener {
@@ -64,7 +64,7 @@ internal class HomeFragment : MvpAppCompatFragment(R.layout.fragment_home), Home
     override fun onResume() {
         super.onResume()
         navigatorHolder.removeNavigator()
-        supportAppNavigator?.let { navigatorHolder.setNavigator(it) }
+        multiBackstackNavigator?.let { navigatorHolder.setNavigator(it) }
     }
 
     override fun onPause() {
@@ -73,7 +73,7 @@ internal class HomeFragment : MvpAppCompatFragment(R.layout.fragment_home), Home
     }
 
     override fun onDestroyView() {
-        supportAppNavigator = null
+        multiBackstackNavigator = null
         super.onDestroyView()
     }
 

@@ -1,16 +1,19 @@
 package uz.icerbersoft.mobilenews.presentation.global
 
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
 import dagger.Lazy
 import moxy.MvpAppCompatActivity
 import moxy.ktx.moxyPresenter
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.NavigatorHolder
-import ru.terrakok.cicerone.android.support.SupportAppNavigator
 import uz.icerbersoft.mobilenews.databinding.ActivityGlobalBinding
 import uz.icerbersoft.mobilenews.presentation.application.Application
+import uz.icerbersoft.mobilenews.presentation.application.manager.daynight.DayNightModeManager
 import uz.icerbersoft.mobilenews.presentation.global.di.GlobalDaggerComponent
+import uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator.AnimatedCiceroneNavigator
 import uz.icerbersoft.mobilenews.presentation.global.router.GlobalRouter
+import uz.icerbersoft.mobilenews.presentation.support.cicerone.navigator.BaseCiceroneNavigator
 import javax.inject.Inject
 
 internal class GlobalActivity : MvpAppCompatActivity(), GlobalView {
@@ -22,7 +25,10 @@ internal class GlobalActivity : MvpAppCompatActivity(), GlobalView {
     @Inject
     lateinit var cicerone: Cicerone<GlobalRouter>
     private val navigatorHolder: NavigatorHolder by lazy { cicerone.navigatorHolder }
-    private val navigator by lazy { SupportAppNavigator(this, binding.frameLayout.id) }
+    private val navigator by lazy { BaseCiceroneNavigator(this, binding.frameLayout.id) }
+
+    @Inject
+    lateinit var dayNightModeManager: DayNightModeManager
 
     lateinit var globalDaggerComponent: GlobalDaggerComponent
         private set
@@ -37,8 +43,14 @@ internal class GlobalActivity : MvpAppCompatActivity(), GlobalView {
             .inject(this)
 
         super.onCreate(savedInstanceState)
+
+        AppCompatDelegate.setDefaultNightMode(dayNightModeManager.getDayNightMode())
         setContentView(binding.root)
-        presenter.onActivityCreate()
+    }
+
+    fun updateNightMode (dayNightMode: Int){
+        dayNightModeManager.setDayNightMode(dayNightMode)
+        AppCompatDelegate.setDefaultNightMode(dayNightModeManager.getDayNightMode())
     }
 
     override fun onResumeFragments() {

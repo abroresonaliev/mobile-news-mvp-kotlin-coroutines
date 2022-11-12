@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.MobileNews.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <style name="Theme.MobileNews.DefaultTextView" parent="android:style/Widget.TextView">
+        <item name="android:textColor">@color/app_text_color_primary</item>
+        <item name="android:fontFamily">@font/font_family_rubik</item>
+    </style>
+
+    <style name="Theme.MobileNews.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="elevation">0dp</item>
+        <!--        <item name="android:background">@color/color_background</item>-->
+    </style>
+
+    <style name="Theme.MobileNews.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <!--        <item name="android:background">@color/color_background</item>-->
+        <item name="android:fontFamily">@font/font_family_rubik</item>
+    </style>
+
+</resources>

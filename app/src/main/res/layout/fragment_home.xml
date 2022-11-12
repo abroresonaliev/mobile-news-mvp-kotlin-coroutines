@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_gravity="center"
-        app:backgroundTint="@color/color_white"
+        app:backgroundTint="@color/card_background_color"
         app:itemIconTint="@color/color_state_bottom_navigation"
         app:itemRippleColor="@color/color_primary"
         app:itemTextColor="@color/color_state_bottom_navigation"

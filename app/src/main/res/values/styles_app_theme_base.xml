@@ -1,0 +1,23 @@
+<resources>
+
+    <style name="Theme.MobileNews.Base" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary_variant</item>
+        <item name="colorOnPrimary">@color/color_on_primary</item>
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="colorSecondaryVariant">@color/color_secondary_variant</item>
+        <item name="colorOnSecondary">@color/color_on_secondary</item>
+
+        <item name="colorControlNormal">@color/icon_color</item>
+        <item name="android:colorControlNormal">@color/icon_color</item>
+
+        <item name="android:textColorPrimary">@color/app_text_color_primary</item>
+        <item name="android:textColorSecondary">@color/app_text_color_secondary</item>
+
+        <item name="android:textViewStyle">@style/Theme.MobileNews.DefaultTextView</item>
+        <item name="materialCardViewStyle">@style/Theme.MobileNews.MaterialCardView.Default</item>
+        <item name="cardViewStyle">@style/Theme.MobileNews.CardView.Default</item>
+        <item name="recyclerViewStyle">@style/Theme.MobileNews.RecyclerView.Default</item>
+    </style>
+
+</resources>
