@@ -1,4 +1,4 @@
-package uz.icerbersoft.mobilenews.presentation
+package uz.icerbersoft.mobilenews
 
 import org.junit.Test
 
