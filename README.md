@@ -1,6 +1,6 @@
 # Mobile news is sample project
 
-In project used: [Kotlin Coroutines](https://github.com/Kotlin/kotlinx.coroutines), Room, [Dagger2](https://github.com/google/dagger), EasyAdapter([surf-studio](https://github.com/surfstudio/EasyAdapter)), Cicerone([terratok](https://github.com/terrakok/Cicerone)), moxy-mvp([arello-mobile](https://github.com/Arello-Mobile/Moxy))
+In project used: [Kotlin Coroutines](https://github.com/Kotlin/kotlinx.coroutines), Room, [Dagger2](https://github.com/google/dagger), EasyAdapter([surf-studio](https://github.com/surfstudio/EasyAdapter)), Cicerone([terratok](https://github.com/terrakok/Cicerone)), moxy-mvp([moxy-community](https://github.com/moxy-community/Moxy))
 
 articles taken from [News Api](https://newsapi.org/)
 
