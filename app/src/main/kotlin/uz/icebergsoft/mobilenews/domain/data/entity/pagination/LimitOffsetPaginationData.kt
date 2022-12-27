@@ -1,7 +1,7 @@
 package uz.icebergsoft.mobilenews.domain.data.entity.pagination
 
-data class PaginationData<T>(
+data class LimitOffsetPaginationData<T>(
     val data: List<T>,
-    val page: Int,
-    val perPage: Int,
+    val limit: Int,
+    val offset: Int
 )

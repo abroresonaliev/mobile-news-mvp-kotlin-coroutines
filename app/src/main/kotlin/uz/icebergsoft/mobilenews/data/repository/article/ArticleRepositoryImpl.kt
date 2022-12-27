@@ -8,9 +8,9 @@ import uz.icebergsoft.mobilenews.data.mapper.entityToArticle
 import uz.icebergsoft.mobilenews.data.mapper.responseToEntity
 import uz.icebergsoft.mobilenews.domain.data.entity.article.Article
 import uz.icebergsoft.mobilenews.domain.data.entity.article.ArticleListWrapper
-import uz.icebergsoft.mobilenews.domain.data.entity.pagination.PaginationData
+import uz.icebergsoft.mobilenews.domain.data.entity.pagination.LimitOffsetPaginationData
 import uz.icebergsoft.mobilenews.domain.data.repository.article.ArticleRepository
-import uz.icebergsoft.mobilenews.domain.data.utils.mapToPaginationData
+import uz.icebergsoft.mobilenews.domain.data.utils.mapToLimitOffsetPaginationData
 import java.net.ConnectException
 import java.net.UnknownHostException
 import javax.inject.Inject
@@ -95,7 +95,10 @@ internal class ArticleRepositoryImpl @Inject constructor(
     }
 
     @FlowPreview
-    override fun getRecommendedArticles(page: Int): Flow<PaginationData<Article>> {
+    override fun getRecommendedArticles(
+        limit: Int,
+        offset: Int
+    ): Flow<LimitOffsetPaginationData<Article>> {
 //        return articleRestService.getRecommendedArticles()
 //            .onEach { it ->
 //                it.articles.forEach {
@@ -116,9 +119,9 @@ internal class ArticleRepositoryImpl @Inject constructor(
 //                    .map { list -> list.map { it.entityToArticle() } }
 //                    .map { ArticleListWrapper(it, postUrls.isEmpty()) }
 //            }
-        return articleEntityDao.getArticleEntities(10, 10 * page-1)
+        return articleEntityDao.getArticleEntities(limit, offset)
             .map { list -> list.map { it.entityToArticle() } }
-            .map { it.mapToPaginationData(page, 10) }
+            .map { it.mapToLimitOffsetPaginationData(limit, offset) }
     }
 
     @FlowPreview
