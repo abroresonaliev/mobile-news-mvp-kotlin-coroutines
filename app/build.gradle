@@ -85,13 +85,13 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0"
 
     // kotlin coroutines
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3"
 
     // room db
-    implementation "androidx.room:room-runtime:2.3.0"
-    implementation "androidx.room:room-ktx:2.3.0"
-    kapt "androidx.room:room-compiler:2.3.0"
+    implementation "androidx.room:room-runtime:2.4.3"
+    implementation "androidx.room:room-ktx:2.4.3"
+    kapt "androidx.room:room-compiler:2.4.3"
 
     // dagger 2
     implementation "com.google.dagger:dagger:2.41"
@@ -117,6 +117,7 @@ dependencies {
     implementation "ru.surfstudio.android:recycler-decorator:1.0.1"
     implementation "ru.surfstudio.android:recycler-decorator-easyadapter:1.0.1"
     implementation "ru.surfstudio.android:datalist-limit-offset:0.5.0"
+    implementation "ru.surfstudio.android:datalist-page-count:0.5.0"
     implementation "ru.surfstudio.android:datalist-base:0.5.0"
 
     // cicerone navigation

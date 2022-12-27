@@ -3,6 +3,7 @@ package uz.icebergsoft.mobilenews.domain.data.repository.article
 import kotlinx.coroutines.flow.Flow
 import uz.icebergsoft.mobilenews.domain.data.entity.article.Article
 import uz.icebergsoft.mobilenews.domain.data.entity.article.ArticleListWrapper
+import uz.icebergsoft.mobilenews.domain.data.entity.pagination.PaginationData
 
 interface ArticleRepository {
 
@@ -14,7 +15,7 @@ interface ArticleRepository {
 
     fun getTopArticles(): Flow<ArticleListWrapper>
 
-    fun getRecommendedArticles(): Flow<ArticleListWrapper>
+    fun getRecommendedArticles(page: Int): Flow<PaginationData<Article>>
 
     fun getReadLaterArticles(): Flow<ArticleListWrapper>
 
