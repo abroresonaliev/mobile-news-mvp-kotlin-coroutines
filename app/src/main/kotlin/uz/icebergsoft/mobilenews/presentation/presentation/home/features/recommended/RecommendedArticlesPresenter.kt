@@ -6,12 +6,13 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import moxy.MvpPresenter
 import moxy.presenterScope
-import ru.surfstudio.android.datalistlimitoffset.domain.datalist.DataList
+import ru.surfstudio.android.datalistpagecount.domain.datalist.DataList
 import ru.surfstudio.android.easyadapter.pagination.PaginationState.*
 import uz.icebergsoft.mobilenews.domain.data.entity.article.Article
 import uz.icebergsoft.mobilenews.domain.usecase.article.recommended.RecommendedArticlesUseCase
 import uz.icebergsoft.mobilenews.presentation.global.router.GlobalRouter
 import uz.icebergsoft.mobilenews.presentation.presentation.home.router.HomeRouter
+import uz.icebergsoft.mobilenews.presentation.support.event.LoadingListEvent
 import uz.icebergsoft.mobilenews.presentation.support.event.LoadingListEvent.*
 import javax.inject.Inject
 
@@ -65,6 +66,5 @@ internal class RecommendedArticlesPresenter @Inject constructor(
     fun openArticleDetail(article: Article) {
         globalRouter.openArticleDetailScreen(article.articleId)
     }
-
     fun back() = homeRouter.openDashboardTab(true)
 }

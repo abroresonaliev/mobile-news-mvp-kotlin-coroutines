@@ -10,7 +10,7 @@ internal abstract class ArticleEntityDao {
     @Query("SELECT * FROM articles ORDER BY article_article_id DESC LIMIT 20")
     abstract fun getArticleEntities(): Flow<List<ArticleEntity>>
 
-    @Query("SELECT * FROM articles ORDER BY article_article_id DESC LIMIT :limit OFFSET :offset" )
+    @Query("SELECT * FROM articles  ORDER BY article_article_id DESC LIMIT :limit OFFSET :offset" )
     abstract fun getArticleEntities(limit: Int, offset:Int): Flow<List<ArticleEntity>>
 
     @Query("SELECT * FROM articles WHERE article_url in (:urls) ORDER BY article_article_id DESC LIMIT 20")
