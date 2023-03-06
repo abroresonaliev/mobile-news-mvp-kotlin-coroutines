@@ -10,6 +10,7 @@ import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.create
 import uz.icebergsoft.mobilenews.BuildConfig
+import uz.icebergsoft.mobilenews.data.datasource.rest.interceptor.common.ApiKeyInterceptor
 import uz.icebergsoft.mobilenews.data.datasource.rest.interceptor.logging.HttpLoggingInterceptor
 import uz.icebergsoft.mobilenews.data.datasource.rest.retrofit.adapter.FlowCallAdapterFactory
 import uz.icebergsoft.mobilenews.data.datasource.rest.retrofit.converter.UnitConverterFactory
@@ -24,9 +25,18 @@ internal object DataDaggerModuleRest {
     @JvmStatic
     @Provides
     @Singleton
+    fun provideApiKeyInterceptor(
+    ): ApiKeyInterceptor =
+         ApiKeyInterceptor()
+
+    @JvmStatic
+    @Provides
+    @Singleton
     fun OkHttpClient(
+        apiKeyInterceptor: ApiKeyInterceptor
     ): OkHttpClient =
         OkHttpClient.Builder()
+            .addInterceptor(apiKeyInterceptor)
             .addInterceptor(HttpLoggingInterceptor(BuildConfig.LOG_ENABLED))
             .retryOnConnectionFailure(false)
             .followRedirects(false)
