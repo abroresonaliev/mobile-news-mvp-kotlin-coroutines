@@ -3,7 +3,7 @@ package uz.icebergsoft.mobilenews.domain.data.entity.article
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import uz.icebergsoft.mobilenews.data.datasource.rest.retrofit.converter.DateSerializer
+import uz.icebergsoft.mobilenews.data.datasource.network.retrofit.converter.DateSerializer
 import uz.icebergsoft.mobilenews.domain.data.entity.source.SourceResponse
 import java.util.*
 

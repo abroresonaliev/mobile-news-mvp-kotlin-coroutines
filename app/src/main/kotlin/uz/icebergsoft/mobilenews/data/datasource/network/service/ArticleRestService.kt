@@ -1,4 +1,4 @@
-package uz.icebergsoft.mobilenews.data.datasource.rest.service
+package uz.icebergsoft.mobilenews.data.datasource.network.service
 
 import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET

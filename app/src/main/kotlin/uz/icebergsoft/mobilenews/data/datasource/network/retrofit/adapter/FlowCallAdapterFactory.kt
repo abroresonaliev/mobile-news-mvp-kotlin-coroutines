@@ -1,4 +1,4 @@
-package uz.icebergsoft.mobilenews.data.datasource.rest.retrofit.adapter
+package uz.icebergsoft.mobilenews.data.datasource.network.retrofit.adapter
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

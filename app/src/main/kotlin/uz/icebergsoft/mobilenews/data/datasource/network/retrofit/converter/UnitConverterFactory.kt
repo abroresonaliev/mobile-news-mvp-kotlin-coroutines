@@ -1,4 +1,4 @@
-package uz.icebergsoft.mobilenews.data.datasource.rest.retrofit.converter
+package uz.icebergsoft.mobilenews.data.datasource.network.retrofit.converter
 
 import okhttp3.ResponseBody
 import retrofit2.Converter

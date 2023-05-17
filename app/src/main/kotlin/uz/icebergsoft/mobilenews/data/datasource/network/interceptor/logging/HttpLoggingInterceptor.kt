@@ -1,4 +1,4 @@
-package uz.icebergsoft.mobilenews.data.datasource.rest.interceptor.logging
+package uz.icebergsoft.mobilenews.data.datasource.network.interceptor.logging
 
 import okhttp3.Interceptor
 import okhttp3.Response

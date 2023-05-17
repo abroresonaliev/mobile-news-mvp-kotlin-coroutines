@@ -10,17 +10,17 @@ import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.create
 import uz.icebergsoft.mobilenews.BuildConfig
-import uz.icebergsoft.mobilenews.data.datasource.rest.interceptor.common.ApiKeyInterceptor
-import uz.icebergsoft.mobilenews.data.datasource.rest.interceptor.logging.HttpLoggingInterceptor
-import uz.icebergsoft.mobilenews.data.datasource.rest.retrofit.adapter.FlowCallAdapterFactory
-import uz.icebergsoft.mobilenews.data.datasource.rest.retrofit.converter.UnitConverterFactory
-import uz.icebergsoft.mobilenews.data.datasource.rest.service.ArticleRestService
+import uz.icebergsoft.mobilenews.data.datasource.network.interceptor.common.ApiKeyInterceptor
+import uz.icebergsoft.mobilenews.data.datasource.network.interceptor.logging.HttpLoggingInterceptor
+import uz.icebergsoft.mobilenews.data.datasource.network.retrofit.adapter.FlowCallAdapterFactory
+import uz.icebergsoft.mobilenews.data.datasource.network.retrofit.converter.UnitConverterFactory
+import uz.icebergsoft.mobilenews.data.datasource.network.service.ArticleRestService
 import uz.icebergsoft.mobilenews.data.utils.json.actual
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-internal object DataDaggerModuleRest {
+internal object DataDaggerModuleNetwork {
 
     @JvmStatic
     @Provides

@@ -1,4 +1,4 @@
-package uz.icebergsoft.mobilenews.data.datasource.rest.retrofit.converter
+package uz.icebergsoft.mobilenews.data.datasource.network.retrofit.converter
 
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.descriptors.PrimitiveKind

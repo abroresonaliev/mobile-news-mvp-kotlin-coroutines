@@ -1,4 +1,4 @@
-package uz.icebergsoft.mobilenews.data.datasource.rest.interceptor.common
+package uz.icebergsoft.mobilenews.data.datasource.network.interceptor.common
 
 import okhttp3.Interceptor
 import okhttp3.Interceptor.Chain

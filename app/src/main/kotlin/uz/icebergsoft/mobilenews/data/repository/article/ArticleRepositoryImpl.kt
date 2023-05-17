@@ -3,7 +3,7 @@ package uz.icebergsoft.mobilenews.data.repository.article
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.*
 import uz.icebergsoft.mobilenews.data.datasource.database.dao.article.ArticleEntityDao
-import uz.icebergsoft.mobilenews.data.datasource.rest.service.ArticleRestService
+import uz.icebergsoft.mobilenews.data.datasource.network.service.ArticleRestService
 import uz.icebergsoft.mobilenews.data.mapper.entityToArticle
 import uz.icebergsoft.mobilenews.data.mapper.responseToEntity
 import uz.icebergsoft.mobilenews.domain.data.entity.article.Article
