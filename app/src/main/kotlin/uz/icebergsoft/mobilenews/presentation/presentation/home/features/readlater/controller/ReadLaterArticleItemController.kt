@@ -25,17 +25,16 @@ internal class ReadLaterArticleItemController(
         init {
             with(binding) {
                 itemParent.setOnClickListener { itemClickListener.invoke(article) }
-//                ivBookmark.apply {
-////                    if (article.isBookmarked) setImageResource(R.drawable.drawable_bookmark)
-////                    else setImageResource(R.drawable.drawable_bookmark_border)
-//                    setOnClickListener { bookmarkListener.invoke(article) }
-//                }
+                ivBookmark.setOnClickListener { bookmarkListener.invoke(article) }
             }
         }
 
         override fun bind(data: Article) {
             article = data
             with(binding) {
+                if (article.isBookmarked) ivBookmark.setImageResource(R.drawable.ic_bookmark)
+                else ivBookmark.setImageResource(R.drawable.ic_bookmark_border)
+
                 tvTitle.text = data.title
                 tvSource.text = data.source.name
                 tvPublishedDate.text = data.publishedAt
