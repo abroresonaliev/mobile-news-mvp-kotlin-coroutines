@@ -9,7 +9,7 @@
     android:elevation="4dp">
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/day_night_mode_name_tv"
+        android:id="@+id/tv_day_night_mode_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"

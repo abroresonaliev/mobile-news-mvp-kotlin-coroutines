@@ -62,8 +62,8 @@ internal class RecommendedArticlesFragment :
         binding = FragmentRecommendedArticlesBinding.bind(view)
         with(binding) {
             easyPaginationAdapter.isFirstInvisibleItemEnabled = true
-            recyclerView.adapter = easyPaginationAdapter
-            recyclerView.itemAnimator = null
+            rvArticles.adapter = easyPaginationAdapter
+            rvArticles.itemAnimator = null
         }
     }
 

@@ -11,8 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="@string/state_loading"
-         />
+        android:text="@string/state_loading" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -31,8 +30,8 @@
         android:layout_height="38dp"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_12sdp"
-        android:textColor="@color/white"
         android:gravity="center"
-        android:text="@string/state_error_action" />
+        android:text="@string/state_error_action"
+        android:textColor="@color/white" />
 
 </LinearLayout>

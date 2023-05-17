@@ -66,14 +66,15 @@ internal class DashboardArticlesFragment :
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDashboardArticlesBinding.bind(view)
         with(binding) {
-            todayDateTv.text = Date().toFormattedDate("EEEE, dd MMMM")
-            breakingArticleRv.adapter = breakingArticlesAdapter
-            breakingArticleRv.itemAnimator = null
-            topArticleRv.adapter = topArticlesAdapter
-            topArticleRv.itemAnimator = null
-            settingsIv.setOnClickListener {
-                presenter.openSettingsScreen()
-            }
+            tvTodayDate.text = Date().toFormattedDate("EEEE, dd MMMM")
+
+            rvBreakingArticles.adapter = breakingArticlesAdapter
+            rvBreakingArticles.itemAnimator = null
+
+            rvTopArticles.adapter = topArticlesAdapter
+            rvTopArticles.itemAnimator = null
+
+            ivSettings.setOnClickListener { presenter.openSettingsScreen() }
         }
     }
 

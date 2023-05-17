@@ -2,10 +2,10 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/_140sdp"
+    android:layout_width="@dimen/_260sdp"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/_3sdp"
-    android:layout_marginBottom="@dimen/_8sdp">
+    android:layout_marginHorizontal="@dimen/_4sdp"
+    android:layout_marginVertical="@dimen/_8sdp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/item_parent"
@@ -15,47 +15,47 @@
         android:paddingVertical="8dp">
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/image_simple_image_view"
+            android:id="@+id/sdv_article"
             style="@style/Theme.MobileNews.SimpleDraweeView.DefaultNewsListImage"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_120sdp"
+            android:layout_height="@dimen/_160sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/source_text_view"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_source"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp"
             android:ellipsize="end"
-            android:maxLines="1"
+            android:maxLines="3"
             android:textColor="@color/app_text_color_primary"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_simple_image_view"
+            app:layout_constraintTop_toBottomOf="@id/sdv_article"
             tools:text="Motley Fool" />
 
-        <TextView
-            android:id="@+id/title_text_view"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="4dp"
             android:ellipsize="end"
-            android:maxLines="5"
-            android:minLines="5"
+            android:maxLines="2"
+            android:minLines="2"
             android:textColor="@color/app_text_color_primary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/source_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/tv_source"
             tools:text="3 Renewable Energy Stocks That Don't Care About the Electoral College - Motley Fool" />
 
-        <TextView
-            android:id="@+id/published_at_text_view"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_published_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -63,20 +63,30 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@color/app_text_color_secondary"
-            app:layout_constraintEnd_toStartOf="@id/bookmark_image_view"
+            app:layout_constraintEnd_toStartOf="@id/iv_read_collection"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:text="November 10 13:23" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/bookmark_image_view"
+            android:id="@+id/iv_read_collection"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            android:src="@drawable/ic_read_collection"
+            app:layout_constraintEnd_toStartOf="@id/iv_bookmark"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bookmark"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:background="?selectableItemBackgroundBorderless"
             android:padding="4dp"
             android:src="@drawable/ic_bookmark_border"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_text_view" />
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -15,7 +15,7 @@ class StateErrorItemController(
 
     override fun createViewHolder(parent: ViewGroup) =
         BaseViewHolder(parent, R.layout.view_holder_state_error).apply {
-            itemView.findViewById<Button>(R.id.action_btn).setOnClickListener {
+            itemView.findViewById<Button>(R.id.btn_action).setOnClickListener {
                 onActionClickLister.invoke()
             }
             itemView.layoutParams = itemView.layoutParams.apply {

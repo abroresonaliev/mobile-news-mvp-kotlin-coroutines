@@ -6,15 +6,15 @@
     android:layout_gravity="center">
 
     <ProgressBar
-        android:id="@+id/state_loading_progress_bar"
+        android:id="@+id/progress_bar"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        app:layout_constraintBottom_toTopOf="@id/state_error_text_view"
+        app:layout_constraintBottom_toTopOf="@id/tv_message"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/state_error_text_view"
+        android:id="@+id/tv_message"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"

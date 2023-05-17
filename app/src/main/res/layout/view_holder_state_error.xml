@@ -9,7 +9,7 @@
     android:paddingVertical="@dimen/_8sdp">
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/message_tv"
+        android:id="@+id/tv_message"
         style="@android:style/TextAppearance.Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         android:text="@string/state_error_title" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/action_btn"
+        android:id="@+id/btn_action"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

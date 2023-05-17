@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/title_tv"
+        android:id="@+id/tv_title"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center|start"
@@ -43,7 +43,7 @@
         android:layout_marginVertical="@dimen/_8sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_tv">
+        app:layout_constraintTop_toBottomOf="@id/tv_title">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/settings_rv"

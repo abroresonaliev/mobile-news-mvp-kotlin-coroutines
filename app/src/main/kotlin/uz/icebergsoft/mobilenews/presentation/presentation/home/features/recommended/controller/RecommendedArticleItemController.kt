@@ -4,28 +4,28 @@ import android.view.ViewGroup
 import ru.surfstudio.android.easyadapter.controller.BindableItemController
 import ru.surfstudio.android.easyadapter.holder.BindableViewHolder
 import uz.icebergsoft.mobilenews.R
-import uz.icebergsoft.mobilenews.databinding.ViewHolderRecommendedArticleBinding
+import uz.icebergsoft.mobilenews.databinding.ViewHolderArticleRecommendedBinding
 import uz.icebergsoft.mobilenews.domain.data.entity.article.Article
 
 internal class RecommendedArticleItemController(
     private val itemClickListener: (product: Article) -> Unit,
     private val bookmarkListener: (Article) -> Unit
-) : BindableItemController<Article, RecommendedArticleItemController.Holder>(){
+) : BindableItemController<Article, RecommendedArticleItemController.Holder>() {
 
     override fun createViewHolder(parent: ViewGroup): Holder = Holder(parent)
 
     override fun getItemId(data: Article) = "$ID_TAG${data.articleId}"
 
     inner class Holder(parent: ViewGroup) :
-        BindableViewHolder<Article>(parent, R.layout.view_holder_recommended_article) {
+        BindableViewHolder<Article>(parent, R.layout.view_holder_article_recommended) {
 
         private lateinit var article: Article
-        private val binding = ViewHolderRecommendedArticleBinding.bind(itemView)
+        private val binding = ViewHolderArticleRecommendedBinding.bind(itemView)
 
         init {
-            with(binding){
+            with(binding) {
                 itemParent.setOnClickListener { itemClickListener.invoke(article) }
-                bookmarkImageView.apply {
+                ivBookmark.apply {
 //                    if (article.isBookmarked) setImageResource(R.drawable.drawable_bookmark)
 //                    else setImageResource(R.drawable.drawable_bookmark_border)
                     setOnClickListener { bookmarkListener.invoke(article) }
@@ -36,11 +36,11 @@ internal class RecommendedArticleItemController(
         override fun bind(data: Article) {
             article = data
             with(binding) {
-                titleTextView.text = data.title
-                sourceTextView.text = data.source.name
-                publishedAtTextView.text = data.publishedAt
-                imageSimpleImageView.setImageURI(data.imageUrl)
-                bookmarkImageView.apply {
+                tvTitle.text = data.title
+                tvSource.text = data.source.name
+                tvPublishedDate.text = data.publishedAt
+                sdvArticle.setImageURI(data.imageUrl)
+                ivBookmark.apply {
                     if (data.isBookmarked) setImageResource(R.drawable.ic_bookmark)
                     else setImageResource(R.drawable.ic_bookmark_border)
                 }

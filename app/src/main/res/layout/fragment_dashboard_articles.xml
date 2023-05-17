@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/today_date_tv"
+                    android:id="@+id/tv_today_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -34,7 +34,7 @@
                     android:layout_marginStart="@dimen/_12sdp"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginEnd="@dimen/_4sdp"
-                    android:layout_toStartOf="@id/settings_iv"
+                    android:layout_toStartOf="@id/iv_settings"
                     android:textColor="@color/app_text_color_primary"
                     android:textSize="@dimen/_12sdp"
                     tools:text="Mar 26 14:02" />
@@ -42,19 +42,19 @@
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/today_date_tv"
+                    android:layout_alignTop="@id/tv_today_date"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="@dimen/_12sdp"
                     android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginEnd="@dimen/_4sdp"
-                    android:layout_toStartOf="@id/settings_iv"
+                    android:layout_toStartOf="@id/iv_settings"
                     android:text="@string/title_bottom_dashboard"
                     android:textColor="@color/app_text_color_primary"
                     android:textSize="@dimen/_18sdp"
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:id="@+id/settings_iv"
+                    android:id="@+id/iv_settings"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_alignParentEnd="true"
@@ -66,7 +66,7 @@
             </RelativeLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/breaking_article_rv"
+                android:id="@+id/rv_breaking_articles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -75,7 +75,7 @@
                 android:paddingHorizontal="@dimen/_8sdp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="1"
-                tools:listitem="@layout/view_holder_breaking_article" />
+                tools:listitem="@layout/view_holder_article_breaking" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
@@ -88,7 +88,7 @@
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/top_article_rv"
+                android:id="@+id/rv_top_articles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_4sdp"
@@ -100,7 +100,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:itemCount="2"
-                tools:listitem="@layout/view_holder_top_article" />
+                tools:listitem="@layout/view_holder_article_top" />
 
         </LinearLayout>
 

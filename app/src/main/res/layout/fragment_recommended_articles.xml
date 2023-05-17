@@ -8,7 +8,7 @@
     android:theme="@style/Theme.MobileNews">
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/title_tv"
+        android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_12sdp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/rv_articles"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
@@ -31,8 +31,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_tv"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
         tools:itemCount="2"
-        tools:listitem="@layout/view_holder_recommended_article" />
+        tools:listitem="@layout/view_holder_article_recommended" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

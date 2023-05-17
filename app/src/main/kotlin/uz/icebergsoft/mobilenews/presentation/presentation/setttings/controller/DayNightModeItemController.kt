@@ -35,16 +35,16 @@ class DayNightModeItemController(
         override fun bind(data: DayNightModeWrapper) {
             dayNightModeWrapper = data
             with(binding) {
-                dayNightModeNameTv.text = when (data.dayNightMode) {
+                tvDayNightModeName.text = when (data.dayNightMode) {
                     ONLY_LIGHT_MODE -> "Light mode"
                     ONLY_NIGHT_MODE -> "Night mode"
                     FOLLOW_SYSTEM_NIGHT_MODE -> "Follow system"
                 }
 
                 if (data.isSelected)
-                    dayNightModeNameTv.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_selected, 0)
+                    tvDayNightModeName.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_selected, 0)
                 else
-                    dayNightModeNameTv.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
+                    tvDayNightModeName.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
             }
         }
     }

@@ -47,9 +47,9 @@ internal class ArticleDetailFragment : MvpAppCompatFragment(R.layout.fragment_ar
     override fun onSuccessArticleDetail(article: Article) {
         with(binding) {
             detailImageSdv.setImageURI(article.imageUrl)
-            publishedAtTextView.text = article.publishedAt
-            titleTextView.text = article.title
-            sourceTextView.text = article.source.name
+            tvPublishedDate.text = article.publishedAt
+            tvTitle.text = article.title
+            tvSource.text = article.source.name
             contentTextView.text = article.content
 
             bookmarkIv.apply {

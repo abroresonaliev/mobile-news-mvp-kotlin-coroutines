@@ -52,8 +52,8 @@ internal class ReadLaterArticlesFragment :
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentReadLaterArticlesBinding.bind(view)
         with(binding) {
-            recyclerView.adapter = easyAdapter
-            recyclerView.itemAnimator = null
+            rvArticles.adapter = easyAdapter
+            rvArticles.itemAnimator = null
         }
     }
 
