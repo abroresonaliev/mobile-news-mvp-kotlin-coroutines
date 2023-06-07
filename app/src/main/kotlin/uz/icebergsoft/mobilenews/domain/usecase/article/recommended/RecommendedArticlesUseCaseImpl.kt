@@ -6,7 +6,6 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import ru.surfstudio.android.datalistpagecount.domain.datalist.DataList
 import uz.icebergsoft.mobilenews.domain.data.entity.article.Article
-import uz.icebergsoft.mobilenews.domain.data.entity.article.ArticleListWrapper
 import uz.icebergsoft.mobilenews.domain.data.repository.article.ArticleRepository
 import uz.icebergsoft.mobilenews.domain.data.utils.mapToDataList
 import uz.icebergsoft.mobilenews.domain.usecase.bookmark.BookmarkUseCase
@@ -17,10 +16,11 @@ class RecommendedArticlesUseCaseImpl @Inject constructor(
     private val bookmarkUseCase: BookmarkUseCase
 ) : RecommendedArticlesUseCase {
 
-    var page: Int = 1
+    private var page: Int = 1
+    private val perPage: Int = 10
 
     override fun getRecommendedArticles(): Flow<DataList<Article>> {
-        return articleRepository.getRecommendedArticles(page)
+        return articleRepository.getSavedRecommendedArticles(page, perPage)
             .map { it.mapToDataList() }
             .flowOn(Dispatchers.IO)
     }

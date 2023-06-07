@@ -2,7 +2,7 @@ package uz.icebergsoft.mobilenews.data.datasource.database.dao.article
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
-import uz.icebergsoft.mobilenews.domain.data.entity.article.ArticleEntity
+import uz.icebergsoft.mobilenews.data.model.article.ArticleEntity
 
 @Dao
 internal abstract class ArticleEntityDao {
@@ -10,14 +10,14 @@ internal abstract class ArticleEntityDao {
     @Query("SELECT * FROM articles ORDER BY article_article_id DESC LIMIT 20")
     abstract fun getArticleEntities(): Flow<List<ArticleEntity>>
 
-    @Query("SELECT * FROM articles  ORDER BY article_article_id DESC LIMIT :limit OFFSET :offset" )
-    abstract fun getArticleEntities(limit: Int, offset:Int): Flow<List<ArticleEntity>>
+    @Query("SELECT * FROM articles WHERE article_is_recommended = 1 ORDER BY article_saved_at DESC LIMIT :limit OFFSET :offset")
+    abstract fun getRecommendedArticleEntities(limit: Int, offset: Int): Flow<List<ArticleEntity>>
+
+    @Query("SELECT * FROM articles WHERE article_is_bookmarked = 1 ORDER BY article_saved_at DESC LIMIT :limit OFFSET :offset")
+    abstract fun getSavedReadLaterArticles(limit: Int, offset: Int): Flow<List<ArticleEntity>>
 
     @Query("SELECT * FROM articles WHERE article_url in (:urls) ORDER BY article_article_id DESC LIMIT 20")
     abstract fun getArticleEntitiesByUrl(urls: Array<String>): Flow<List<ArticleEntity>>
-
-    @Query("SELECT * FROM articles WHERE article_is_bookmarked = :isBookmarked ORDER BY article_article_id DESC LIMIT 20")
-    abstract fun getArticleEntitiesByBookmark(isBookmarked: Boolean): Flow<List<ArticleEntity>>
 
     @Query("SELECT * FROM articles WHERE article_article_id = :id")
     abstract fun getArticleEntityById(id: String): Flow<ArticleEntity>

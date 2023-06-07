@@ -1,5 +1,4 @@
-package uz.icebergsoft.mobilenews.domain.data.entity.source
-
+package uz.icebergsoft.mobilenews.data.model.source
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

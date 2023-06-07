@@ -9,15 +9,31 @@ interface ArticleRepository {
 
     fun getArticle(articleId: String): Flow<Article>
 
-    fun getArticles(): Flow<ArticleListWrapper>
+    fun getBreakingNewsArticles(
+        country: String = "us",
+        category: String = "world",
+        sortBy: String = "popularity"
+    ): Flow<ArticleListWrapper>
 
-    fun getBreakingNewsArticles(): Flow<ArticleListWrapper>
+    fun getTopArticles(
+        country: String = "us",
+        category: String = "general",
+        sortBy: String = "popularity"
+    ): Flow<ArticleListWrapper>
 
-    fun getTopArticles(): Flow<ArticleListWrapper>
+    fun getRecommendedArticles(
+        country: String = "us",
+        category: String = "science",
+        sortBy: String = "popularity"
+    ): Flow<ArticleListWrapper>
 
-    fun getRecommendedArticles(page: Int): Flow<PaginationData<Article>>
+    fun getSavedBreakingArticles(page: Int, perPage: Int): Flow<PaginationData<Article>>
 
-    fun getReadLaterArticles(): Flow<ArticleListWrapper>
+    fun getSavedTopArticles(page: Int, perPage: Int): Flow<PaginationData<Article>>
+
+    fun getSavedRecommendedArticles(page: Int, perPage: Int): Flow<PaginationData<Article>>
+
+    fun getSavedReadLaterArticles(page: Int, perPage: Int): Flow<PaginationData<Article>>
 
     fun updateBookmark(articleId: String, isBookmarked: Boolean): Flow<Unit>
 }

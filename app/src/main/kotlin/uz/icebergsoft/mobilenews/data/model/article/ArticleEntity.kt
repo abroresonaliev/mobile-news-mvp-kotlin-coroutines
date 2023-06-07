@@ -1,4 +1,4 @@
-package uz.icebergsoft.mobilenews.domain.data.entity.article
+package uz.icebergsoft.mobilenews.data.model.article
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -23,6 +23,12 @@ internal data class ArticleEntity(
     @ColumnInfo(name = "article_author")
     val author: String,
 
+    @ColumnInfo(name = "article_category")
+    val category: String,
+
+    @ColumnInfo(name = "article_country")
+    val country: String,
+
     @ColumnInfo(name = "article_url")
     val url: String,
 
@@ -38,6 +44,18 @@ internal data class ArticleEntity(
     @ColumnInfo(name = "article_published_at")
     val publishedAt: String,
 
+    @ColumnInfo(name = "article_saved_at")
+    val savedAt: Long,
+
     @ColumnInfo(name = "article_is_bookmarked")
-    val isBookmarked: Boolean
+    val isBookmarked: Boolean,
+
+    @ColumnInfo(name = "article_is_breaking")
+    val isBreaking: Boolean,
+
+    @ColumnInfo(name = "article_is_top")
+    val isTop: Boolean,
+
+    @ColumnInfo(name = "article_is_recommended")
+    val isRecommended: Boolean,
 )

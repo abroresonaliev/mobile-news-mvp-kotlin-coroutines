@@ -5,13 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import uz.icebergsoft.mobilenews.data.datasource.database.dao.article.ArticleEntityDao
-import uz.icebergsoft.mobilenews.domain.data.entity.article.ArticleEntity
+import uz.icebergsoft.mobilenews.data.model.article.ArticleEntity
 
 @Database(
     entities = [
         ArticleEntity::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 internal abstract class AppDatabase : RoomDatabase() {

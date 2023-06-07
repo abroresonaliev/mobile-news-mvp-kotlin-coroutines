@@ -3,28 +3,15 @@ package uz.icebergsoft.mobilenews.data.datasource.network.service
 import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET
 import retrofit2.http.Query
-import uz.icebergsoft.mobilenews.domain.data.entity.article.ArticleListResponse
+import uz.icebergsoft.mobilenews.data.model.article.ArticleListResponse
 
 internal interface ArticleRestService {
 
     @GET(API_TOP_HEADINGS)
-    fun getBreakingArticles(
-        @Query(FIELD_COUNTRY) country: String = "us",
-        @Query(FIELD_SORT) sortBy: String = "popularity"
-    ): Flow<ArticleListResponse>
-
-    @GET(API_TOP_HEADINGS)
-    fun getTopArticles(
-        @Query(FIELD_COUNTRY) country: String = "us",
-        @Query(FIELD_CATEGORY) category: String = "business",
-        @Query(FIELD_SORT) sortBy: String = "popularity"
-    ): Flow<ArticleListResponse>
-
-    @GET(API_TOP_HEADINGS)
-    fun getRecommendedArticles(
-        @Query(FIELD_COUNTRY) country: String = "us",
-        @Query(FIELD_CATEGORY) category: String = "science",
-        @Query(FIELD_SORT) sortBy: String = "popularity"
+    fun getArticles(
+        @Query(FIELD_COUNTRY) country: String,
+        @Query(FIELD_CATEGORY) category: String,
+        @Query(FIELD_SORT) sortBy: String
     ): Flow<ArticleListResponse>
 
     private companion object {

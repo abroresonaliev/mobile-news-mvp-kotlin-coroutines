@@ -15,7 +15,7 @@ class ReadLaterArticlesUseCaseImpl @Inject constructor(
 ) : ReadLaterArticlesUseCase {
 
     override fun getReadLaterArticles(): Flow<ArticleListWrapper> {
-        return articleRepository.getReadLaterArticles()
+        return articleRepository.getSavedReadLaterArticles()
             .flowOn(Dispatchers.IO)
     }
 

@@ -9,6 +9,7 @@ import uz.icebergsoft.mobilenews.presentation.presentation.home.features.dashboa
 import uz.icebergsoft.mobilenews.presentation.presentation.home.features.readlater.ReadLaterArticlesFragment
 import uz.icebergsoft.mobilenews.presentation.presentation.home.features.recommended.RecommendedArticlesFragment
 import uz.icebergsoft.mobilenews.presentation.presentation.home.router.HomeRouter
+import uz.icebergsoft.mobilenews.presentation.presentation.readcollection.ReadCollectionArticlesFragment
 import uz.icebergsoft.mobilenews.presentation.presentation.setttings.SettingsFragment
 
 @GlobalScope
@@ -27,10 +28,15 @@ internal interface GlobalDaggerComponent {
     val homeDaggerComponent: HomeDaggerComponent.Factory
 
     fun inject(activity: GlobalActivity)
+
     fun inject(fragment: ArticleDetailFragment)
+
     fun inject(fragment: DashboardArticlesFragment)
+
+    fun inject(fragment: ReadCollectionArticlesFragment)
     fun inject(fragment: ReadLaterArticlesFragment)
     fun inject(fragment: RecommendedArticlesFragment)
+
     fun inject(fragment: SettingsFragment)
 
     @Subcomponent.Factory
