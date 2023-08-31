@@ -42,7 +42,7 @@ internal class ArticleRepositoryImpl @Inject constructor(
                         )
                 }
             }
-            .map { it -> it.articles.map { it.url } }
+            .map { it -> it.articles.mapNotNull { it.url } }
             .catch {
                 if (it is ConnectException || it is UnknownHostException) emit(listOf())
                 else throw it
@@ -73,7 +73,7 @@ internal class ArticleRepositoryImpl @Inject constructor(
                         )
                 }
             }
-            .map { it -> it.articles.map { it.url } }
+            .map { it -> it.articles.mapNotNull { it.url } }
             .catch {
                 if (it is ConnectException || it is UnknownHostException) emit(listOf())
                 else throw it
@@ -102,7 +102,7 @@ internal class ArticleRepositoryImpl @Inject constructor(
                         )
                 }
             }
-            .map { it -> it.articles.map { it.url } }
+            .map { it -> it.articles.mapNotNull { it.url } }
             .catch {
                 if (it is ConnectException || it is UnknownHostException) emit(listOf())
                 else throw it

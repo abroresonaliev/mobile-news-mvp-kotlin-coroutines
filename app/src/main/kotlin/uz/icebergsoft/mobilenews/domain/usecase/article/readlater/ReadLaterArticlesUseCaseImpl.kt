@@ -2,6 +2,7 @@ package uz.icebergsoft.mobilenews.domain.usecase.article.readlater
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.flowOn
 import uz.icebergsoft.mobilenews.domain.data.entity.article.Article
 import uz.icebergsoft.mobilenews.domain.data.entity.article.ArticleListWrapper
@@ -15,7 +16,8 @@ class ReadLaterArticlesUseCaseImpl @Inject constructor(
 ) : ReadLaterArticlesUseCase {
 
     override fun getReadLaterArticles(): Flow<ArticleListWrapper> {
-        return articleRepository.getSavedReadLaterArticles()
+        return flowOf(ArticleListWrapper(listOf(), true))
+//        return articleRepository.getSavedReadLaterArticles()
             .flowOn(Dispatchers.IO)
     }
 

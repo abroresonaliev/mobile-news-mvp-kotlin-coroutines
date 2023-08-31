@@ -1,5 +1,6 @@
 package uz.icebergsoft.mobilenews.presentation.presentation.home.features.dashboard
 
+import android.util.Log
 import kotlinx.coroutines.flow.*
 import moxy.MvpPresenter
 import moxy.presenterScope
@@ -27,7 +28,10 @@ internal class DashboardArticlesPresenter @Inject constructor(
                     viewState.onDefinedBreakingArticleEvents(SuccessState(it.articles))
                 else viewState.onDefinedBreakingArticleEvents(EmptyState)
             }
-            .catch { viewState.onDefinedBreakingArticleEvents(ErrorState(it.message)) }
+            .catch {
+                Log.wtf("", "getBreakingArticles() error = $it")
+                viewState.onDefinedBreakingArticleEvents(ErrorState(it.message))
+            }
             .launchIn(presenterScope)
     }
 
@@ -42,7 +46,10 @@ internal class DashboardArticlesPresenter @Inject constructor(
                             viewState.onDefinedTopArticleWrappers(SuccessState(it.articles))
                         else viewState.onDefinedTopArticleWrappers(EmptyState)
                     }
-                    .catch { viewState.onDefinedTopArticleWrappers(ErrorState(it.message)) }
+                    .catch {
+                        Log.wtf("", "getTopArticles() error = $it")
+                        viewState.onDefinedTopArticleWrappers(ErrorState(it.message))
+                    }
             }
             .launchIn(presenterScope)
     }

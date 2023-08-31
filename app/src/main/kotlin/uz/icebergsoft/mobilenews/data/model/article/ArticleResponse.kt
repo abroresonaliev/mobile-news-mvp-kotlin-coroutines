@@ -11,27 +11,27 @@ import java.util.*
 internal data class ArticleResponse(
 
     @SerialName("author")
-    val author: String?,
+    val author: String? = null,
 
     @SerialName("content")
-    val content: String?,
+    val content: String? = null,
 
     @SerialName("description")
-    val description: String?,
+    val description: String? = null,
 
     @Serializable(with = DateSerializer::class)
     @SerialName("publishedAt")
-    val publishedAt: Date?,
+    val publishedAt: Date? = null,
 
     @SerialName("source")
     val source: SourceResponse,
 
     @SerialName("title")
-    val title: String,
+    val title: String? = null,
 
     @SerialName("url")
-    val url: String,
+    val url: String? = null,
 
     @SerialName("urlToImage")
-    val imageUrl: String?
+    val imageUrl: String? = null
 )

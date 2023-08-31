@@ -7,8 +7,8 @@ import kotlinx.serialization.Serializable
 internal data class SourceResponse(
 
     @SerialName("id")
-    val id: String?,
+    val id: String? = null,
 
     @SerialName("name")
-    val name: String
+    val name: String? = null
 )

@@ -31,7 +31,7 @@ internal fun ArticleResponse.mapTo(
     category: String,
     isBreaking: Boolean = false,
     isTop: Boolean = false,
-    isRecommended: Boolean =false
+    isRecommended: Boolean = false
 ): ArticleEntity =
     ArticleEntity(
         articleId = url.hashCode().toString(),
@@ -42,10 +42,10 @@ internal fun ArticleResponse.mapTo(
         country = country,
         publishedAt = publishedAt?.toFormattedDate() ?: "",
         savedAt = Date().time,
-        source = source.name,
+        source = source.name ?: "",
         sourceId = source.id,
-        title = title,
-        url = url,
+        title = title ?: "",
+        url = url ?: "",
         imageUrl = imageUrl ?: "",
         isBookmarked = false,
         isBreaking = isBreaking,
