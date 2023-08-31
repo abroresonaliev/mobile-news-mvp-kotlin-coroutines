@@ -3,8 +3,8 @@
     <style name="Theme.MobileNews.MaterialCardView" parent="Widget.MaterialComponents.CardView"/>
 
     <style name="Theme.MobileNews.MaterialCardView.Default">
-        <item name="cardCornerRadius">16dp</item>
-        <item name="cardElevation">4dp</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">2dp</item>
         <item name="cardBackgroundColor">@color/card_background_color</item>
     </style>
 

@@ -15,7 +15,7 @@
         <item name="roundBottomRight">true</item>
         <item name="roundTopLeft">true</item>
         <item name="roundTopRight">true</item>
-        <item name="roundedCornerRadius">12dp</item>
+        <item name="roundedCornerRadius">8dp</item>
         <item name="roundingBorderWidth">1dp</item>
     </style>
 
